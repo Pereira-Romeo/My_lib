@@ -295,7 +295,8 @@ char *mstrn_to_ccpy(char *dest, char *src, int n, char c);
 //@param m index to stop copy
 //@returns pointer to dest
 //@note dest needs to be big enough as my_strcpy does not realloc nor alloc
-//@note also, if m is greater than the last index of src, it copies up to the end
+//@note also, if m is greater than the last index of src,
+//it copies up to the end
 char *mstrn_to_mcpy(char *dest, char *src, int n, int m);
 //cpy src starting at n into dest
 //@param dest destination of the copy
