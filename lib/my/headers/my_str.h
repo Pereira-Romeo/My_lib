@@ -52,12 +52,14 @@ char *my_strstr(char *str, char *to_find);
 
 //my_is*.c
 
-//Looks for c in str
+//Looks for c in str and store it's index if found
 //@param c character to find
 //@param str string to search in
+//@param index address of int to store the index in
 //@returns TRUE (1)
 //OR FALSE (0)
-int my_char_is_in(char c, char *str);
+//@note index can be NULL if you don't need it
+int my_char_is_in(char c, char *str, int *index);
 //Verify c is alphanumeric
 //@param c character to check
 //@returns TRUE (1)

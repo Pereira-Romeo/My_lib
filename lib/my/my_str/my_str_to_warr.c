@@ -19,7 +19,7 @@ int nb_words_basic_check(char *str, char *separator)
     if (my_strlen(str) == 0)
         return 0;
     if (my_strlen(str) == 1) {
-        if (my_char_is_in(str[0], separator))
+        if (my_char_is_in(str[0], separator, NULL))
             return 0;
         return 1;
     }
@@ -39,8 +39,8 @@ int my_nb_words(char *str, char *separator)
         return nb_words_basic_check(str, separator);
     do {
         i++;
-        if ((my_char_is_in(str[i], separator) || str[i] == '\0') &&
-        !my_char_is_in(str[i - 1], separator) && str[i - 1] != '\0')
+        if ((my_char_is_in(str[i], separator, NULL) || str[i] == '\0') &&
+        !my_char_is_in(str[i - 1], separator, NULL) && str[i - 1] != '\0')
             words++;
     } while (str[i] != '\0');
     return words;
@@ -72,7 +72,7 @@ int on_word(int *Wlen, char *str, int i, char *separator)
 
     if (separator == NULL)
         separator = default_seperator;
-    if (!my_char_is_in(str[i], separator) && str[i] != '\0') {
+    if (!my_char_is_in(str[i], separator, NULL) && str[i] != '\0') {
         *Wlen += 1;
         return 1;
     }
