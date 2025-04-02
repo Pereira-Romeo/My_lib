@@ -5,7 +5,8 @@
 ## better builder
 ##
 
-SRC := $(wildcard my_file/*.c)
+SRC := $(wildcard my_errno/*.c)
+SRC += $(wildcard my_file/*.c)
 SRC += $(wildcard my_linked_list/*.c)
 SRC += $(wildcard my_math/*.c)
 SRC += $(wildcard my_mem/*.c)
@@ -31,7 +32,7 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm ../libmy.a
+	rm -f ../libmy.a
 	rm -f $(NAME)
 
 re: fclean all
