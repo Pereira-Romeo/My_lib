@@ -7,6 +7,6 @@
 
 #ifndef MY_BOOL_H
     #define MY_BOOL_H
-    #define True 1
-    #define False 0
+    #define TRUE 1
+    #define FALSE 0
 #endif /* MY_BOOL_H */
