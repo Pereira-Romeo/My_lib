@@ -9,14 +9,12 @@
 #include <fcntl.h>
 
 
-int create_file(char *filepath, int mode, int close)
+int create_file(char *filepath, int mode)
 {
     int fd = open(filepath, O_CREAT | O_WRONLY | O_TRUNC, mode);
 
     if (fd == -1)
         write(STDERR_FILENO, "create_file: cannot create\n", 27);
-    if (close)
-        return close_file(fd);
     return fd;
 }
 
