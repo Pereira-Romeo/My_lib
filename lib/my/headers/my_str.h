@@ -135,17 +135,6 @@ int my_str_isupper(char const *str);
 
 //my_put*.c
 
-//Write str in the standard error output
-//@param str string to write
-//@returns number of characters written
-//OR -1 on error
-int my_write_err(char *str);
-//Write [name: err\n] in the standard error output
-//@param name should be the name of program or func
-//@param err the error that happened
-//@returns number of characters written
-//OR -1 on error
-int my_puterr(char *name, char *err);
 //Write c to the standard output
 //@param c character to write
 //@returns 1
