@@ -11,13 +11,13 @@ int my_str_isalnum(char const *str)
 {
     for (int i = 0; str[i] != '\0'; i++)
         if (!my_char_isalnum(str[i]))
-            return 0;
-    return 1;
+            return FALSE;
+    return TRUE;
 }
 
 int my_char_isalnum(char const c)
 {
     if (my_char_isalpha(c) || my_char_isnumer(c))
-        return 1;
-    return 0;
+        return TRUE;
+    return FALSE;
 }

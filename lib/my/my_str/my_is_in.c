@@ -13,14 +13,14 @@ int my_char_is_in(char c, char *str)
         return 0;
     for (int i = 0; str[i] != '\0'; i++)
         if (str[i] == c)
-            return 1;
-    return 0;
+            return TRUE;
+    return FALSE;
 }
 
 int my_str_isalnum_and(char *str, char *specials)
 {
     for (char *ptr = str; *ptr != '\0'; ptr++)
         if (!my_char_isalnum(*ptr) && !my_char_is_in(*ptr, specials))
-            return 0;
-    return 1;
+            return FALSE;
+    return TRUE;
 }

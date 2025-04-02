@@ -4,6 +4,7 @@
 ** File description:
 ** returns 1 if str only has alphabetical characters
 */
+#include "../headers/my_bool.h"
 
 int my_str_isalpha(char const *str)
 {
@@ -11,9 +12,9 @@ int my_str_isalpha(char const *str)
         if (str[i] < 65 || str[i] > 122)
             return 0;
         if (str[i] > 90 && str[i] < 97)
-            return 0;
+            return FALSE;
     }
-    return 1;
+    return TRUE;
 }
 
 int my_char_isalpha(char const c)
@@ -21,6 +22,6 @@ int my_char_isalpha(char const c)
     if (c < 65 || c > 122)
         return 0;
     if (c > 90 && c < 97)
-        return 0;
-    return 1;
+        return FALSE;
+    return TRUE;
 }
