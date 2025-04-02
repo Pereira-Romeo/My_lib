@@ -9,6 +9,8 @@
     #define MY_LINKED_LIST_H
     #include <stddef.h>
     #include <stdlib.h>
+    #include "my_mem.h"
+
 /*cell_t contains:
 prev: previous cell in list
 data: pointer to what you want to store
