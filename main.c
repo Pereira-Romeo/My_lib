@@ -10,6 +10,6 @@
 
 int main(void)
 {
-    my_printf("hello %s\n", "world");
+    my_printf("Hello %s\n", "world");
     return 0;
 }
