@@ -10,7 +10,6 @@
 
 int main(void)
 {
-    my_printf("strlen of NULL: %d\nstrlen of empty string; %d\n",
-    my_strlen(NULL), my_strlen(""));
+    my_printf("hello %s\n", "world");
     return 0;
 }
