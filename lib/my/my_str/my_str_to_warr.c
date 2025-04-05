@@ -136,15 +136,16 @@ char **str_to_warr_from(char *str, char *separator, int n)
 
 char **str_to_warr_until(char *str, char *separator, char c)
 {
-    char tmp = 0;
     int index = 0;
+    char *cpy = my_strdup(str);
     char **warr = NULL;
 
+    if (!cpy)
+        return NULL;
     if (my_char_is_in(c, str, &index)) {
-        tmp = str[index];
-        str[index] = '\0';
+        cpy[index] = '\0';
     }
-    warr = str_to_warr(str, separator);
-    str[index] = tmp;
+    warr = str_to_warr(cpy, separator);
+    free(cpy);
     return warr;
 }
