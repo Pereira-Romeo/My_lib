@@ -159,7 +159,7 @@ int my_putstr(char *str);
 //@returns number characters written
 int my_putstr_i_end(char *str, int i, int end);
 
-//malloc a new string and write nb in it
+//Malloc a new string and write nb in it
 //@param nb number to write
 //@returns malloc'd string
 //OR NULL on error
@@ -167,7 +167,7 @@ char *int_to_str(int nb);
 
 //my_revstr.c
 
-//modify str to write it in reverse
+//Modify str to write it in reverse
 //@param str string to reverse
 //@returns pointer to str
 char *my_revstr(char *str);
@@ -179,7 +179,6 @@ char *my_revstr(char *str);
 //@param str string to modify
 //@returns pointer to str
 char *my_strcapitalize(char *str);
-//all letters become lowercase
 //Change all letters to lowercase
 //@param str string to modify
 //@returns pointer to str
@@ -190,9 +189,9 @@ char *my_strlowcase(char *str);
 char *my_strupcase(char *str);
 
 
-//my_str_to_warr.c
+//string to word array:
 
-//malloc a new list of strings and write every words in it
+//Malloc a new list of strings and write every words in it
 //@param str string to make list of word from
 //@param separator separators that should seperate every word
 //@returns pointer to malloc list of string
@@ -200,21 +199,34 @@ char *my_strupcase(char *str);
 //@note separator can be NULL to use default separators wich are
 //"[space]\\n\\0"
 char **str_to_warr(char *str, char *separator);
-//malloc a new list of strings and write every words in it
+//Malloc a new list of strings and write every words in it,
+//starting at index n
 //@param str string to make list of word from
 //@param separator separators that should seperate every word
+//@param n index to start at
 //@returns pointer to malloc list of string
 //OR NULL on error
 //@note separator can be NULL to use default separators wich are
 //"[space]\\n\\0"
 char **str_to_warr_from(char *str, char *separator, int n);
+//Malloc a new list of strings and write every words in it,
+//stopping ar the first occurrence of c.
+//If c isn't met, behaves like simple str_to_warr call.
+//@param str string to make list of word from
+//@param separator separators that should seperate every word
+//@param c character to stop at
+//@returns pointer to malloc list of string
+//OR NULL on error
+//@note separator can be NULL to use default separators wich are
+//"[space]\\n\\0"
+char **str_to_warr_until(char *str, char *separator, char c);
 //free a word array
 //Deprecated do not use
 void free_warr(char **warr);
 
 //my_nb_words.c
 
-//counts the number of words in str
+//Counts the number of words in str
 //@param str string to count the words in
 //@param separator list of characters used to seperate words
 //@returns number of words in str
@@ -226,20 +238,20 @@ int my_nb_words(char *str, char *separator);
 
 //my_strcat.c
 
-//concatenate src at the end of dest
+//Concatenate src at the end of dest
 //@param dest destination of the cat
 //@param src src of the cat
 //@returns pointer to dest
 //@note dest needs to be big enough as my_strcat does not realloc nor alloc
 char *my_strcat(char *dest, char *src);
-//concatenate src up to n at the end of dest
+//Concatenate src up to n at the end of dest
 //@param dest destination of the cat
 //@param src src of the cat
 //@param n length of src to cat
 //@returns pointer to dest
 //@note dest needs to be big enough as my_strcat does not realloc nor alloc
 char *my_strncat(char *dest, char *src, int n);
-//concatenate src from n up to m at the end of dest
+//Concatenate src from n up to m at the end of dest
 //@param dest destination of the cat
 //@param src src of the cat
 //@param n index of src to start cat
@@ -251,13 +263,13 @@ char *mstrn_to_mcat(char *dest, char *src, int n, int m);
 
 //my_strcmp.c
 
-//compare s1 and s2
+//Compare s1 and s2
 //@param s1 string
 //@param s2 string
 //@returns 0 if s1 and s2 are the same
 //OR the difference between the first character that is different
 int my_strcmp(char const *s1, char const *s2);
-//compare s1 and s2 up to n
+//Compare s1 and s2 up to n
 //@param s1 string
 //@param s2 string
 //@param n length to compare
@@ -268,27 +280,27 @@ int my_strncmp(char const *s1, char const *s2, int n);
 
 //my_strcpy.c
 
-//copy src into dest
+//Copy src into dest
 //@param dest destination of the copy
 //@param src source to copy
 //@returns pointer to dest
 //@note dest needs to be big enough as my_strcpy does not realloc nor alloc
 char *my_strcpy(char *dest, char *src);
-//copy src up to n into dest
+//Copy src up to n into dest
 //@param dest destination of the copy
 //@param src source to copy
 //@param n length of src to copy
 //@returns pointer to dest
 //@note dest needs to be big enough as my_strcpy does not realloc nor alloc
 char *my_strncpy(char *dest, char *src, int n);
-//copy src from n up to c into dest
+//Copy src from n up to c into dest
 //@param dest destination of the copy
 //@param src source to copy
 //@param n length of src to copy
 //@returns pointer to dest
 //@note dest needs to be big enough as my_strcpy does not realloc nor alloc
 char *mstrn_to_ccpy(char *dest, char *src, int n, char c);
-//copy src from n up to m into dest
+//Copy src from n up to m into dest
 //@param dest destination of the copy
 //@param src soucre to copy
 //@param n index to start copy
@@ -298,7 +310,7 @@ char *mstrn_to_ccpy(char *dest, char *src, int n, char c);
 //@note also, if m is greater than the last index of src,
 //it copies up to the end
 char *mstrn_to_mcpy(char *dest, char *src, int n, int m);
-//cpy src starting at n into dest
+//Copy src starting at n into dest
 //@param dest destination of the copy
 //@param src source to copy
 //@param n index to start copying from
@@ -308,18 +320,18 @@ char *my_strcpy_from(char *dest, char *src, int n);
 
 //my_strdup.c
 
-//duplicate a string
+//Duplicate a string
 //@param src string to duplicate
 //@returns malloc'd string
 //OR NULL on error
 char *my_strdup(char *src);
-//duplicate a string starting at n
+//Duplicate a string starting at n
 //@param src string to duplicate
 //@param n index to start duplicating at
 //@returns malloc'd string
 //OR NULL on error
 char *my_strdup_from(char *src, int n);
-//duplicate src until c is met
+//Duplicate src until c is met
 //@param src string to duplicate
 //@param c character to stop at
 //@returns malloc'd string
@@ -328,7 +340,7 @@ char *strdup_till(char *src, char c);
 
 //my_strdupcat.c
 
-//duplicate s1 and cat s2 to s1
+//Duplicate s1 and cat s2 to s1
 //@param s1 string to duplicate
 //@param s2 string to cat to s1
 //@returns malloc'd string
@@ -336,13 +348,13 @@ char *strdup_till(char *src, char c);
 //@note if s1 is NULL but not s2, is equivalent to my_strdup(s2)
 //@note if s2 is NULL but not s1, is equivalent to my_strdup(s1)
 char *strdupcat(char *s1, char *s2);
-//duplicate s1 and cat s2 and s3 to s1
+//Duplicate s1 and cat s2 and s3 to s1
 //@param s1 string to duplicate
 //@param s2 string to cat to s1 first
 //@param s3 string to cat to s1 in 2nd
 //@returns malloc'd string
 char *strdup2cat(char *s1, char *s2, char *s3);
-//duplicate s1 up to n and cat s2 to s1
+//Duplicate s1 up to n and cat s2 to s1
 //@param s1 string to duplicate
 //@param s2 string to cat to s1
 //@param n length of s1 to duplicate
