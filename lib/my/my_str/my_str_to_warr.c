@@ -142,9 +142,8 @@ char **str_to_warr_until(char *str, char *separator, char c)
 
     if (!cpy)
         return NULL;
-    if (my_char_is_in(c, str, &index)) {
+    if (my_char_is_in(c, str, &index))
         cpy[index] = '\0';
-    }
     warr = str_to_warr(cpy, separator);
     free(cpy);
     return warr;
