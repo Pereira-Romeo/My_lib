@@ -161,8 +161,10 @@ const errs_t error_tab[NB_ERR_MESS + 1] =
 int my_perror(char *str, int err, int val)
 {
     if (err >= 0 && err <= NB_ERR_MESS) {
-        if (str)
+        if (str) {
             write(STDERR_FILENO, str, my_strlen(str));
+            write(STDERR_FILENO, ": ", 2);
+        }
         write(STDERR_FILENO, error_tab[err].e_mess,
         error_tab[err].mess_size);
     }
