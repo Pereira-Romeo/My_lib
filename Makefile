@@ -14,7 +14,7 @@ NAME = main
 
 CFLAGS = -Wall -Wextra -iquote include
 
-LDFLAGS = -L lib/ -lmy
+LDFLAGS = -L lib/ -lmy -lm 
 
 all:    mylib $(NAME)
 
