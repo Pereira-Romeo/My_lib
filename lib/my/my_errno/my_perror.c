@@ -7,17 +7,6 @@
 
 #include "../headers/my_errno.h"
 
-static
-int my_strlen(char *str)
-{
-    char *ptr = str;
-
-    while (ptr && *ptr) {
-        ptr++;
-    }
-    return ptr - str;
-}
-
 //list of all error messages and their sizes.
 //the error value corresponds to the index of the message in this list
 //the error values should be macros from errno.h
@@ -159,6 +148,17 @@ const errs_t error_tab[NB_ERR_MESS + 1] =
     {"Operation not possible due to RF-kill.\n", 39},
     {"Memory page has hardware error.\n", 32}
 };
+
+static
+int my_strlen(char *str)
+{
+    char *ptr = str;
+
+    while (ptr && *ptr) {
+        ptr++;
+    }
+    return ptr - str;
+}
 
 int my_perror(char *str, int err, int val)
 {
