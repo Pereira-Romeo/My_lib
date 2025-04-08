@@ -27,4 +27,9 @@ int my_getnbr_from(const char *str, int i);
 int my_power(int nb, int p);
 //return the swaure root of nb if its square root is a whole number
 int my_square_root(int nb);
+//Get the square root of a number
+//@param nb a number
+//@returns the square root of nb
+//@note this function has a max precision of e-15 (15 digits after the unit)
+double my_sqrt(double nb);
 #endif /* MY_MATH_H */
