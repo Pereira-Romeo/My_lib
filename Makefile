@@ -8,13 +8,13 @@
 SRC := main.c
 SRC += $(wildcard src/*.c)
 
-OBJ = $(SRC:.o=.c)
+OBJ = $(SRC:.c=.o)
 
 NAME = main
 
 CFLAGS = -Wall -Wextra -iquote include
 
-LDFLAGS = -L lib/ -lmy -lm 
+LDFLAGS = -L lib/ -lmy -lm
 
 all:    mylib $(NAME)
 
@@ -26,6 +26,7 @@ $(NAME): $(OBJ)
 
 clean:
 	make -C lib/my fclean
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f libmy.a
