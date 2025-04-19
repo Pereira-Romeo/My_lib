@@ -18,12 +18,12 @@ Along this project i am also learning how to use github and all its tools.
 
 # How to use this library
 ### Modifying this project for your own uses
-1. clone and rename this repo to your own
+1. clone this repo and copy the files to your workspace/directory
 2. add all your .c files to a directory
 3. put this directory in lib/my/ and add a header file for your functions in lib/my/headers
 4. and finally add this line at the top of the Makefile in lib/my/ : ```SRC += $(wildcard my_dir/*.c)```
 
-for an exemple of how to compile with this library, take a look a the Makefile at the root.
+for an exemple of how to compile with this library, take a look a the Makefile at the root and the one in lib/my/.
 
 ### Using inside a project
 Copy all these files, change the main in main.c to your convenience.\
@@ -46,7 +46,7 @@ meaning this repo may not fit the coding style perfectly.
 > this section may not be up to date
 
 <details>
-<summary> __external dependencies__ </summary>
+<summary> external dependencies </summary>
 
 my_math is fully independant (except for base_switcher.c, depends on write())
 
@@ -56,7 +56,7 @@ my_str depends on write (a lot, obviously)
 </details>
 
 <details>
-<summary name="bruh"> __internal dependencies__ </summary>
+<summary> internal dependencie </summary>
 
 my_math is fully_independant (except for base_switcher.c)
 
@@ -65,7 +65,10 @@ the sub libraries my_errno, my_mem and my_bool are used all over this library, d
 
 # Coming soon (or atleast, some day in the future)
 
- - [ ] A new printf (still without mallocs) wich has "my_printf" and "my_dprintf".
- - [ ] Using my_lperror() for all error messages in the library.
+Ticked items are _regularly_ worked on (as regularly as my free time and will allows)\
+Unticked items are _occasionaly_ worked on.
+
+ - [x] A new printf (still without mallocs) wich has "my_printf" and "my_dprintf".
+ - [x] Using my_lperror() for all error messages in the library.
  - [ ] Update the docstring in all header files.
  - [ ] Make this readme look better.
