@@ -3,21 +3,21 @@
 This project is a personnal project[^1] that i work on during free time to deepen my knowledge about the C standard library and C in general.
 Along this project i am also learning how to use github and all its tools.
 
-[^1]: @Doritosbzh also contributed a bit.
+[^1]: @Doritosbzh also contributed to the my_printf, and the new one in progress.
 
 > [!WARNING]
 > Every functions in this project have been tested but most likely still have bugs as this is mostly training.
 
 ## table of contents
 
- - How to use this library: [Link Text](#how-to-use-this-library).
- - Known issues: [Link Text](#known-issues-work-in-progress).
- - Dependencis: [Link Text](#dependencies).
- - Coming soon: [Link Text](#coming-soon-or-atleast-some-day-in-the-future).
+ - [How to use this library](#how-to-use-this-library).
+ - [Known issues](#known-issues-work-in-progress).
+ - [Dependencies](#dependencies).
+ - [Coming soon](#coming-soon-or-atleast-some-day-in-the-future).
 
 
 # How to use this library
-## How to modify this project for your own uses
+### Modifying this project for your own uses
 1. clone and rename this repo to your own
 2. add all your .c files to a directory
 3. put this directory in lib/my/ and add a header file for your functions in lib/my/headers
@@ -25,6 +25,12 @@ Along this project i am also learning how to use github and all its tools.
 
 for an exemple of how to compile with this library, take a look a the Makefile at the root.
 
+### Using inside a project
+Copy all these files, change the main in main.c to your convenience.
+put your source file inside the src dir and to the SRC var in the Makefile of the root if they are in a sub folder of src (or anywhere else).
+
+The src folder is made for all .c files.
+The include folder is made for all .h files.
 
 # Known Issues (work in progress)
 
