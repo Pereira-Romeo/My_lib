@@ -7,6 +7,10 @@
 
 #ifndef MY_MATH_H
     #define MY_MATH_H
+    #include "my_errno.h"
+    #define MAX_SQRT_VALUE 1048577
+    #define MAX_SQRT_PRECISION 1.0e-15
+    #define SQRT_2 1.41421356237309504880
 //transform decimal int nb into the desired base (with lowercase letters)
 int base_switcher(int nb, int base);
 //transform decimal int nb into the desired base (with uppercase letters)
