@@ -1,0 +1,34 @@
+name: cs_check
+
+on: 
+  push:
+    branches-ignore:
+      - 'ga-ignore-*'
+  pull_request:
+    branches-ignore:
+      - 'ga-ignore-*'
+
+jobs:
+  check_coding_style:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/epitech/coding-style-checker:latest
+    steps:
+      - name: checkout to check coding style
+        uses: actions/checkout@v4
+
+      - name: coding style check
+        run: check.sh $(pwd) $(pwd)
+
+      - name: makes annotations with coding style
+        run: |
+          exitstat=0
+          while read line; do
+          exitstat=1
+          file=$(echo "$line" | cut -d "/" -f 2 | cut -d ":" -f 1);
+          level=$(echo "$line" | cut -d ":" -f 3 | cut -d " " -f 2);
+          errline=$(echo "$line" | cut -d ":" -f 2);
+          type=$(echo "$line" | cut -d ":" -f 4);
+          echo "::error title=$level coding style error,file=$file,line=$errline::$type"
+          done < "coding-style-reports.log"
+          exit $exitstat
