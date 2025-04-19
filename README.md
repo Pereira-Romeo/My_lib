@@ -26,35 +26,42 @@ Along this project i am also learning how to use github and all its tools.
 for an exemple of how to compile with this library, take a look a the Makefile at the root.
 
 ### Using inside a project
-Copy all these files, change the main in main.c to your convenience.
+Copy all these files, change the main in main.c to your convenience.\
 put your source file inside the src dir and to the SRC var in the Makefile of the root if they are in a sub folder of src (or anywhere else).
 
-The src folder is made for all .c files.
+The src folder is made for all .c files.\
 The include folder is made for all .h files.
 
 # Known Issues (work in progress)
 
 Most of the doc string in the header files are not up to date with new standards
 
-the coding style checker does not work with this repo for some reason, but it does work when copying this repo inside another project, i do not know what the error is.
-I tried adding the coding style check to git actions but these ones crash aswell...
+the coding style checker does not work with this repo due to unknown reasons :cry:\
+meaning this repo may not fit the coding style perfectly.
 
 
 # Dependencies
-## external dependencies (this section is probably not up to date)
+
+> [!CAUTION]
+> this section may not be up to date
+
+<details>
+<summary> ### external dependencies </summary>
 
 my_math is fully independant (except for base_switcher.c, depends on write())
 
 my_mem depends on malloc and free
 
 my_str depends on write (a lot, obviously)
+</details>
 
-## internal dependencies (this section is probably not up to date)
+<details>
+<summary> ### internal dependencies </summary>
 
 my_math is fully_independant (except for base_switcher.c)
 
 the sub libraries my_errno, my_mem and my_bool are used all over this library, do not remove.
-
+</details>
 
 # Coming soon (or atleast, some day in the future)
 
