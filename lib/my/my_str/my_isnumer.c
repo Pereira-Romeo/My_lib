@@ -7,10 +7,13 @@
 
 #include "../headers/my_bool.h"
 
-int my_str_isnumer(char const *str)
+int my_str_isnumer(char const *str, int include_negatives)
 {
+    int val = 0;
+
     for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] < 48 || str[i] > 57)
+        val = (include_negatives) ? str[i] != '-' : 1;
+        if ((str[i] < 48 || str[i] > 57) && val)
             return FALSE;
     }
     return TRUE;

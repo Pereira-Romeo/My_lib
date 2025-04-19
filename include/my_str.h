@@ -117,11 +117,13 @@ int my_str_isalpha(char const *str);
 //@returns TRUE (1)
 //OR FALSE (0)
 int my_str_islower(char const *str);
-//Verify str only contains numbers (doesn't include '-')
-//@param str string to verify
-//@returns TRUE (1)
-//OR FALSE (0)
-int my_str_isnumer(char const *str);
+/** Verify str it a number
+ * @param str string to verify
+ * @param include_negatives set at True to include '-' as a number
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
+int my_str_isnumer(char const *str, int include_negatives);
 //Verify str only contains printable characters (means you can see it)
 //@param str string to verify
 //@returns TRUE (1)
