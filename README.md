@@ -46,7 +46,7 @@ meaning this repo may not fit the coding style perfectly.
 > this section may not be up to date
 
 <details>
-<summary> ### external dependencies </summary>
+<summary> __external dependencies__ </summary>
 
 my_math is fully independant (except for base_switcher.c, depends on write())
 
@@ -56,7 +56,7 @@ my_str depends on write (a lot, obviously)
 </details>
 
 <details>
-<summary> ### internal dependencies </summary>
+<summary name="bruh"> __internal dependencies__ </summary>
 
 my_math is fully_independant (except for base_switcher.c)
 
