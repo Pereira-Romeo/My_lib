@@ -9,15 +9,25 @@
     #define INCLUDED_MY_MEM_H
     #include <unistd.h>
     #include <stdlib.h>
-//allocate nmemb of size bytes and initialize them to NULL
-//RETURN VALUE:
-//on success: pointer to the allocated memory
-//on error: NULL
+
+/** allocate memory and initialize it to NULL
+ * @param nmemb number of members
+ * @param bytes size of each members in bytes
+ * @returns pointer to allocated memory
+ * OR NULL on error
+ */
 void *my_calloc(int nmemb, int bytes);
 
-//free a list of str
-//RETURN VALUE:
-//on succes: NULL
+/** free a list of string
+ * @param tab list to free
+ * @returns NULL
+ */
 char **free_strtab(char **tab);
+
+/** get the swapped the endians of an int
+ * @param int int to swap endians of
+ * @returns the swapped value
+ */
+int swap_int_endians(int value);
 
 #endif
