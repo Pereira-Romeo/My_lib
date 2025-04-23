@@ -10,6 +10,7 @@
 #ifndef MY_LIB_INCLUDE
     #define MY_LIB_INCLUDE
     #include "my_bool.h"
+    #include "my_colors.h"
     #include "my_errno.h"
     #include "my_file.h"
     #include "my_linked_list.h"
