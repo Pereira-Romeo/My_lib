@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2025
-** My_lib
+** my_lib
 ** File description:
-** my_mem
+** header of my_mem sub-library
 */
 
 #ifndef INCLUDED_MY_MEM_H
