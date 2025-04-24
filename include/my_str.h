@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2024
-** my_str.h
+** my lib
 ** File description:
-** my str lib
+** header of my_str sub-library
 */
 
 #ifndef MY_STR_H
@@ -281,137 +281,165 @@ char **str_to_warr_until(char *str, char *separator, char c);
 
 //my_nb_words.c
 
-//Counts the number of words in str
-//@param str string to count the words in
-//@param separator list of characters used to seperate words
-//@returns number of words in str
-//@note separator can be NULL to use default separators wich are
-//"[space]\\n\\0"
+/** Counts the number of words in str
+ * @param str string to count the words in
+ * @param separator list of characters used to seperate words
+ * @returns number of words in str
+ * @note separator can be NULL to use default separators wich are
+ * "[space]\\n\\0"
+ */
 int my_nb_words(char *str, char *separator);
 
 
 
 //my_strcat.c
 
-//Concatenate src at the end of dest
-//@param dest destination of the cat
-//@param src src of the cat
-//@returns pointer to dest
-//@note dest needs to be big enough as my_strcat does not realloc nor alloc
+/** Concatenate src at the end of dest
+ * @param dest destination of the cat
+ * @param src src of the cat
+ * @returns pointer to dest
+ * @note dest needs to be big enough as my_strcat does not realloc nor alloc
+ */
 char *my_strcat(char *dest, char *src);
-//Concatenate src up to n at the end of dest
-//@param dest destination of the cat
-//@param src src of the cat
-//@param n length of src to cat
-//@returns pointer to dest
-//@note dest needs to be big enough as my_strcat does not realloc nor alloc
+
+/** Concatenate src up to n at the end of dest
+ * @param dest destination of the cat
+ * @param src src of the cat
+ * @param n length of src to cat
+ * @returns pointer to dest
+ * @note dest needs to be big enough as my_strcat does not realloc nor alloc
+ */
 char *my_strncat(char *dest, char *src, int n);
-//Concatenate src from n up to m at the end of dest
-//@param dest destination of the cat
-//@param src src of the cat
-//@param n index of src to start cat
-//@param m length of src to cat
-//@returns pointer to dest
-//@note dest needs to be big enough as my_strcat does not realloc nor alloc
+
+/** Concatenate src from n up to m at the end of dest
+ * @param dest destination of the cat
+ * @param src src of the cat
+ * @param n index of src to start cat
+ * @param m length of src to cat
+ * @returns pointer to dest
+ * @note dest needs to be big enough as my_strcat does not realloc nor alloc
+ */
 char *mstrn_to_mcat(char *dest, char *src, int n, int m);
 
 
 //my_strcmp.c
 
-//Compare s1 and s2
-//@param s1 string
-//@param s2 string
-//@returns 0 if s1 and s2 are the same
-//OR the difference between the first character that is different
+/** Compare s1 and s2
+ * @param s1 string
+ * @param s2 string
+ * @returns 0 if s1 and s2 are the same
+ * OR the difference between the first character that is different
+ */
 int my_strcmp(char const *s1, char const *s2);
-//Compare s1 and s2 up to n
-//@param s1 string
-//@param s2 string
-//@param n length to compare
-//@returns 0 if s1 and s2 are the same
-//OR the difference between the first character that is different
+
+/** Compare s1 and s2 up to n
+ * @param s1 string
+ * @param s2 string
+ * @param n length to compare
+ * @returns 0 if s1 and s2 are the same
+ * OR the difference between the first character that is different
+ */
 int my_strncmp(char const *s1, char const *s2, int n);
 
 
 //my_strcpy.c
 
-//Copy src into dest
-//@param dest destination of the copy
-//@param src source to copy
-//@returns pointer to dest
-//@note dest needs to be big enough as my_strcpy does not realloc nor alloc
+/** Copy src into dest
+ * @param dest destination of the copy
+ * @param src source to copy
+ * @returns pointer to dest
+ * @note dest needs to be big enough as my_strcpy does not realloc nor alloc
+ */
 char *my_strcpy(char *dest, char *src);
-//Copy src up to n into dest
-//@param dest destination of the copy
-//@param src source to copy
-//@param n length of src to copy
-//@returns pointer to dest
-//@note dest needs to be big enough as my_strcpy does not realloc nor alloc
+
+/** Copy src up to n into dest
+ * @param dest destination of the copy
+ * @param src source to copy
+ * @param n length of src to copy
+ * @returns pointer to dest
+ * @note dest needs to be big enough as my_strcpy does not realloc nor alloc
+ */
 char *my_strncpy(char *dest, char *src, int n);
-//Copy src from n up to c into dest
-//@param dest destination of the copy
-//@param src source to copy
-//@param n length of src to copy
-//@returns pointer to dest
-//@note dest needs to be big enough as my_strcpy does not realloc nor alloc
+
+/** Copy src from n up to c into dest
+ * @param dest destination of the copy
+ * @param src source to copy
+ * @param n length of src to copy
+ * @returns pointer to dest
+ * @note dest needs to be big enough as my_strcpy does not realloc nor alloc
+ */
 char *mstrn_to_ccpy(char *dest, char *src, int n, char c);
-//Copy src from n up to m into dest
-//@param dest destination of the copy
-//@param src soucre to copy
-//@param n index to start copy
-//@param m index to stop copy
-//@returns pointer to dest
-//@note dest needs to be big enough as my_strcpy does not realloc nor alloc
-//@note also, if m is greater than the last index of src,
-//it copies up to the end
+
+/** Copy src from n up to m into dest
+ * @param dest destination of the copy
+ * @param src soucre to copy
+ * @param n index to start copy
+ * @param m index to stop copy
+ * @returns pointer to dest
+ * @note dest needs to be big enough as my_strcpy does not realloc nor alloc
+ * @note also, if m is greater than the last index of src,
+ * it copies up to the end
+ */
 char *mstrn_to_mcpy(char *dest, char *src, int n, int m);
-//Copy src starting at n into dest
-//@param dest destination of the copy
-//@param src source to copy
-//@param n index to start copying from
-//@returns pointer to dest
-//@note dest needs to be big enough as my_strcpy does not realloc nor alloc
+
+/** Copy src starting at n into dest
+ * @param dest destination of the copy
+ * @param src source to copy
+ * @param n index to start copying from
+ * @returns pointer to dest
+ * @note dest needs to be big enough as my_strcpy does not realloc nor alloc
+ */
 char *my_strcpy_from(char *dest, char *src, int n);
 
 //my_strdup.c
 
-//Duplicate a string
-//@param src string to duplicate
-//@returns malloc'd string
-//OR NULL on error
+/** Duplicate a string
+ * @param src string to duplicate
+ * @returns malloc'd string
+ * OR NULL on error
+ */
 char *my_strdup(char *src);
-//Duplicate a string starting at n
-//@param src string to duplicate
-//@param n index to start duplicating at
-//@returns malloc'd string
-//OR NULL on error
+
+/** Duplicate a string starting at n
+ * @param src string to duplicate
+ * @param n index to start duplicating at
+ * @returns malloc'd string
+ * OR NULL on error
+ */
 char *my_strdup_from(char *src, int n);
-//Duplicate src until c is met
-//@param src string to duplicate
-//@param c character to stop at
-//@returns malloc'd string
-//OR NULL on error
+
+/** Duplicate src until c is met
+ * @param src string to duplicate
+ * @param c character to stop at
+ * @returns malloc'd string
+ * OR NULL on error
+ */
 char *strdup_till(char *src, char c);
 
 //my_strdupcat.c
 
-//Duplicate s1 and cat s2 to s1
-//@param s1 string to duplicate
-//@param s2 string to cat to s1
-//@returns malloc'd string
-//OR NULL on error
-//@note if s1 is NULL but not s2, is equivalent to my_strdup(s2)
-//@note if s2 is NULL but not s1, is equivalent to my_strdup(s1)
+/** Duplicate s1 and cat s2 to s1
+ * @param s1 string to duplicate
+ * @param s2 string to cat to s1
+ * @returns malloc'd string
+ * OR NULL on error
+ * @note if s1 is NULL but not s2, is equivalent to my_strdup(s2)
+ * @note if s2 is NULL but not s1, is equivalent to my_strdup(s1)
+ */
 char *strdupcat(char *s1, char *s2);
-//Duplicate s1 and cat s2 and s3 to s1
-//@param s1 string to duplicate
-//@param s2 string to cat to s1 first
-//@param s3 string to cat to s1 in 2nd
-//@returns malloc'd string
+
+/** Duplicate s1 and cat s2 and s3 to s1
+ * @param s1 string to duplicate
+ * @param s2 string to cat to s1 first
+ * @param s3 string to cat to s1 in 2nd
+ * @returns malloc'd string
+ */
 char *strdup2cat(char *s1, char *s2, char *s3);
-//Duplicate s1 up to n and cat s2 to s1
-//@param s1 string to duplicate
-//@param s2 string to cat to s1
-//@param n length of s1 to duplicate
+
+/** Duplicate s1 up to n and cat s2 to s1
+ * @param s1 string to duplicate
+ * @param s2 string to cat to s1
+ * @param n length of s1 to duplicate
+ */
 char *strdupncat(char *s1, char *s2, int n);
 #endif /* MY_STR_H */
