@@ -10,17 +10,19 @@
 int my_char_is_in(char c, char *str, int *index)
 {
     int tmp = 0;
+    int i = 0;
 
     if (!index)
         index = &tmp;
     if (!str)
         return FALSE;
-    for (int i = 0; str[i]; i++) {
+    for (; str[i]; i++) {
         if (str[i] == c) {
             *index = i;
             return TRUE;
         }
     }
+    *index = i;
     return FALSE;
 }
 

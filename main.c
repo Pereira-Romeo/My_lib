@@ -7,11 +7,16 @@
 
 #include "my.h"
 #include <math.h>
+#include <stdio.h>
 
 int main(void)
 {
-    my_printf("-99 is numer, negatives included: %d\n"
-    "-99 is numer, negatives not inlcuded: %d\n",
-    my_str_isnumer("-99", TRUE), my_str_isnumer("-99", FALSE));
+    char *str = "hello why not, i am dying, wtf is going on i can't use any of those letters aaaaaaaaaaaaaaaaah\n";
+    int index = 0;
+    int found = 0;
+
+    found = my_char_is_in('h', str, &index);
+    printf("%s 'p' in str, index: %d and len: %d\n",
+    (found) ? "found" : "didn't find", index, my_strlen(str));
     return 0;
 }
