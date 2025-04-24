@@ -46,16 +46,6 @@ int my_nb_words(char *str, char *separator)
     return words;
 }
 
-void free_warr(char **warr)
-{
-    if (warr == NULL)
-        return;
-    for (int i = 0; warr[i] != NULL; i++) {
-        free(warr[i]);
-    }
-    free(warr);
-}
-
 static
 int add_word(char *word, char *str, int i, int Wlen)
 {
@@ -115,10 +105,8 @@ char **str_to_warr(char *str, char *separator)
     if (warr == NULL)
         return NULL;
     error = fill_warr(warr, str, nb_words, separator);
-    if (error) {
-        free_warr(warr);
-        return NULL;
-    }
+    if (error)
+        return free_strtab(warr);
     return warr;
 }
 

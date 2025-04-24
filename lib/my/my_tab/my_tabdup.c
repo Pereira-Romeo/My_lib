@@ -18,10 +18,8 @@ char **str_tabdup(char **tab)
         return NULL;
     for (int i = 0; tab[i] != NULL; i++) {
         new_tab[i] = my_strdup(tab[i]);
-        if (new_tab[i] == NULL) {
-            free_warr(new_tab);
-            return NULL;
-        }
+        if (new_tab[i] == NULL)
+            return free_strtab(new_tab);
     }
     return new_tab;
 }

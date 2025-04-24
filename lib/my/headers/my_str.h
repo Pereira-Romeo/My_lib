@@ -172,94 +172,112 @@ int my_str_isupper(char const *str);
 
 //my_put*.c
 
-//Write c to the standard output
-//@param c character to write
-//@returns 1
+/** Write c to the standard output
+ * @param c character to write
+ * @returns 1
+ */
 int my_putchar(char const c);
-//Write an int to the standard output
-//@param nb number to write
-//@returns number characters written
+
+/** Write an int to the standard output
+ * @param nb number to write
+ * @returns number characters written
+ */
 int my_putint(int nb);
-//Write a long long int to the standard output
-//@param nb number to write
-//@returns number characters written
+
+/** Write a long long int to the standard output
+ * @param nb number to write
+ * @returns number characters written
+ */
 int my_putlli(long long int nb);
-//Write a string to the standard output
-//@param str string to write
-//@returns number characters written
+
+/** Write a string to the standard output
+ * @param str string to write
+ * @returns number characters written
+ */
 int my_putstr(char *str);
-//Write a string to the standard output
-//starting at i up to end
-//@param str string to write
-//@param i index to start at
-//@param end index to stop at
-//@returns number characters written
+
+/** Write a string to the standard output
+ * starting at i up to end
+ * @param str string to write
+ * @param i index to start at
+ * @param end index to stop at
+ * @returns number characters written
+ */
 int my_putstr_i_end(char *str, int i, int end);
 
-//Malloc a new string and write nb in it
-//@param nb number to write
-//@returns malloc'd string
-//OR NULL on error
+/** Malloc a new string and write nb in it
+ * @param nb number to write
+ * @returns malloc'd string
+ * OR NULL on error
+ */
 char *int_to_str(int nb);
 
 //my_revstr.c
 
-//Modify str to write it in reverse
-//@param str string to reverse
-//@returns pointer to str
+/** Modify str to write it in reverse
+ * @param str string to reverse
+ * @returns pointer to str
+ */
 char *my_revstr(char *str);
 
 
 //my_str| capitalize | upcase | lowcase |.c
 
-//Change first letter of every word to uppercase
-//@param str string to modify
-//@returns pointer to str
+/** Change first letter of every word to uppercase
+ * @param str string to modify
+ * @returns pointer to str
+ */
 char *my_strcapitalize(char *str);
-//Change all letters to lowercase
-//@param str string to modify
-//@returns pointer to str
+
+/** Change all letters to lowercase
+ * @param str string to modify
+ * @returns pointer to str
+ */
 char *my_strlowcase(char *str);
-//Change all letters to uppercase
-//@param str string to modify
-//@returns pointer to str
+
+/** Change all letters to uppercase
+ * @param str string to modify
+ * @returns pointer to str
+ */
 char *my_strupcase(char *str);
 
 
 //string to word array:
 
-//Malloc a new list of strings and write every words in it
-//@param str string to make list of word from
-//@param separator separators that should seperate every word
-//@returns pointer to malloc list of string
-//OR NULL on error
-//@note separator can be NULL to use default separators wich are
-//"[space]\\n\\0"
+/** Malloc a new list of strings and write every words in it
+ * @param str string to make list of word from
+ * @param separator separators that should seperate every word
+ * @returns pointer to malloc list of string
+ * OR NULL on error
+ * @note separator can be NULL to use default separators wich are
+ * "[space]\\n\\0"
+ */
 char **str_to_warr(char *str, char *separator);
-//Malloc a new list of strings and write every words in it,
-//starting at index n
-//@param str string to make list of word from
-//@param separator separators that should seperate every word
-//@param n index to start at
-//@returns pointer to malloc list of string
-//OR NULL on error
-//@note separator can be NULL to use default separators wich are
-//"[space]\\n\\0"
+
+/** Malloc a new list of strings and write every words in it,
+ * starting at index n
+ * @param str string to make list of word from
+ * @param separator separators that should seperate every word
+ * @param n index to start at
+ * @returns pointer to malloc list of string
+ * OR NULL on error
+ * @note separator can be NULL to use default separators wich are
+ * "[space]\\n\\0"
+ */
 char **str_to_warr_from(char *str, char *separator, int n);
-//Malloc a new list of strings and write every words in it,
-//stopping ar the first occurrence of c.
-//If c isn't met, behaves like simple str_to_warr call.
-//@param str string to make list of word from
-//@param separator separators that should seperate every word
-//@param c character to stop at
-//@returns pointer to malloc list of string
-//OR NULL on error
-//@note separator can be NULL to use default separators wich are
-//"[space]\\n\\0"
+
+/** Malloc a new list of strings and write every words in it,
+ * stopping ar the first occurrence of c.
+ * If c isn't met, behaves like simple str_to_warr call.
+ * @param str string to make list of word from
+ * @param separator separators that should seperate every word
+ * @param c character to stop at
+ * @returns pointer to malloc list of string
+ * OR NULL on error
+ * @note separator can be NULL to use default separators wich are
+ * "[space]\\n\\0"
+ */
 char **str_to_warr_until(char *str, char *separator, char c);
-//free a word array
-//Deprecated do not use
-void free_warr(char **warr);
 
 //my_nb_words.c
 
