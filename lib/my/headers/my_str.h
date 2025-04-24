@@ -12,111 +12,142 @@
 
 //my_*len.c
 
-//Finds the length of str
-//@param str string
-//@return length of str
+/** Finds the length of str
+ * @param str string
+ * @return length of str
+ */
 int my_strlen(char *str);
-//Finds the length from index n to the
-//next occurrence of atleast one character inside c
-//@param str string
-//@param n index to start at
-//@param c list of characters to stop at
-//@return length beteween n and first occurence of a char of c
+
+/** Finds the length from index n to the
+ * next occurrence of atleast one character inside c
+ * @param str string
+ * @param n index to start at
+ * @param c list of characters to stop at
+ * @return length beteween n and first occurence of a char of c
+ */
 int mstrn_to_clen(char *str, int n, char *c);
-//Finds the number of digits in nb
-//@param nb int
-//@return length of nb
+
+/** Finds the number of digits in nb
+ * @param nb int
+ * @return length of nb
+ */
 int my_intlen(int nb);
-//Finds the number of digits in nb
-//@param nb long long int
-//@return length of nb
+
+/** Finds the number of digits in nb
+ * @param nb long long int
+ * @return length of nb
+ */
 int my_llilen(long long int nb);
 
-//Set any character to 0 between n and the first occurence of c
-//@param src string to modify
-//@param n index to start at
-//@param c char to stop at
-//@param backwards set at 1 to go from n to beginning, 0 for n to end
-//@returns on success 0 || on error: 1 (backwards had invalid value)
+/** Set any character to 0 between n and the first occurence of c
+ * @param src string to modify
+ * @param n index to start at
+ * @param c char to stop at
+ * @param backwards set at 1 to go from n to beginning, 0 for n to end
+ * @returns 0
+ * OR 1 (only fails if backward had invalid value)
+ */
 int nullify_from_till(char *src, int n, char c, int backward);
 
-//my_findstr.c
 
-//Looks for to_find in str
-//@param str string
-//@param to_find string to find in str
-//@return pointer to str starting at the beginning of to_find
-//or str if to_find wasn't found
+/** Looks for to_find in str
+ * @param str string
+ * @param to_find string to find in str
+ * @return pointer to str starting at the beginning of to_find
+ * OR str if to_find wasn't found
+ */
 char *my_strstr(char *str, char *to_find);
 
 
 //my_is*.c
 
-//Looks for c in str and store it's index if found
-//@param c character to find
-//@param str string to search in
-//@param index address of int to store the index in
-//@returns TRUE (1)
-//OR FALSE (0)
-//@note index can be NULL if you don't need it
+/** Looks for c in str and store it's index
+ * @param c character to find
+ * @param str string to search in
+ * @param index address of int to store the index in
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ * @note index can be NULL if you don't need it. Also if c wasn't found
+ * index will be equal to the length of str
+ */
 int my_char_is_in(char c, char *str, int *index);
-//Verify c is alphanumeric
-//@param c character to check
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify c is alphanumeric
+ * @param c character to check
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_char_isalnum(char const c);
-//Verify c is alphabetical
-//@param c character to check
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify c is alphabetical
+ * @param c character to check
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_char_isalpha(char const c);
-//Verify c is anything but alphanumeric
-//@param c character to check
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify c is anything but alphanumeric
+ * @param c character to check
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_char_isfence(char const c);
-//Verify c is lowercase
-//@param c character to check
-//@returns TRUE (1)
-//OR FALSE (0)
+/** Verify c is lowercase
+ * @param c character to check
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_char_islower(char const c);
-//Verify c is numbers only (doesn't include '-')
-//@param c character to check
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify c is numbers only (doesn't include '-')
+ * @param c character to check
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_char_isnumer(char const c);
-//Verify c is printable (means you can see it)
-//@param c character to check
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify c is printable (means you can see it)
+ * @param c character to check
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_char_isprint(char const c);
-//Verify c is uppercase
-//@param c character to check
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify c is uppercase
+ * @param c character to check
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_char_isupper(char const c);
-//Verify str is alphanumeric only
-//@param c character to check
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify str is alphanumeric only
+ * @param c character to check
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_str_isalnum(char const *str);
-//Verify str only contains alphanumeric or given special characters
-//@param str string to verify
-//@param specials list of allowed characters
-//@returns TRUE (1)
-//OR FALSE (0)
-//@note Specials can be NULL but in that case, just use my_str_isalnum
-int my_str_isalnum_and(char *str, char *specials);
-//Verify str only contains letters (uppercase or lower case)
-//@param str string to verify
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify str only contains alphanmeric or given special characters
+ * @param str string to verifys
+ * @param specials list of allowed characters
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ * @note Specials can be NULL but in that case, just use my_str_isalnum
+ * int my_str_isalnum_and(char *str, char *specials);
+ * Verify str only contains letters (uppercase or lower case)
+ * @param str string to verify
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_str_isalpha(char const *str);
-//Verify str only contains lowercase letters
-//@param str string to verify
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify str only contains lowercase letters
+ * @param str string to verify
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_str_islower(char const *str);
+
 /** Verify str it a number
  * @param str string to verify
  * @param include_negatives set at True to include '-' as a number
@@ -124,15 +155,19 @@ int my_str_islower(char const *str);
  * OR FALSE (0)
  */
 int my_str_isnumer(char const *str, int include_negatives);
-//Verify str only contains printable characters (means you can see it)
-//@param str string to verify
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify str only contains printable characters (means you can see it)
+ * @param str string to verify
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_str_isprint(char const *str);
-//Verify str only contains uppercase letters
-//@param str string to verify
-//@returns TRUE (1)
-//OR FALSE (0)
+
+/** Verify str only contains uppercase letters
+ * @param str string to verify
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
 int my_str_isupper(char const *str);
 
 //my_put*.c
