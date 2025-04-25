@@ -79,7 +79,7 @@ int flag_manager(char *format, int i, va_list list, int len)
             va_arg(list, int));
     }
     if (len == not_int_flag)
-        len += my_putstr_i_end(format, i, i_end);
+        len += my_putstr_i_end(format, i + 1, i_end);
     return len;
 }
 
