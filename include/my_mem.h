@@ -10,6 +10,12 @@
     #include <unistd.h>
     #include <stdlib.h>
 
+    #if __BYTE_ORDER == __LITTLE_ENDIAN
+        #define MY_SWAP_ENDIAN TRUE
+    #else
+        #define MY_SWAP_ENDIAN FALSE
+    #endif /* MY_SWAP_ENDIAN */
+
 /** allocate memory and initialize it to NULL
  * @param nmemb number of members
  * @param bytes size of each members in bytes
