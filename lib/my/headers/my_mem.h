@@ -9,6 +9,7 @@
     #define INCLUDED_MY_MEM_H
     #include <unistd.h>
     #include <stdlib.h>
+    #include "my_bool.h"
 
     #if __BYTE_ORDER == __LITTLE_ENDIAN
         #define MY_SWAP_ENDIAN TRUE
