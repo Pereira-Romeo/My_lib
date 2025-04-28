@@ -48,13 +48,13 @@ double my_sqrt_basic_check(double nb, double max_precision, int val)
         return SQRT_2;
     if (nb >= MAX_SQRT_VALUE) {
         if (val)
-            return my_lperror("my_sqrt", EOVERFLOW, 0);
+            return my_lputerr("my_sqrt", EOVERFLOW, 0);
         else
             return 0;
     }
     if (max_precision >= 1) {
         if (val)
-            return my_lperror("my_sqrt", EOVERFLOW, 0);
+            return my_lputerr("my_sqrt", EOVERFLOW, 0);
         else
             return 0;
     }

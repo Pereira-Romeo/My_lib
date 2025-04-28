@@ -160,7 +160,7 @@ int my_strlen(char *str)
     return ptr - str;
 }
 
-int my_perror(char *str, int err, int val)
+int my_puterr(char *str, int err, int val)
 {
     if (err >= 0 && err <= NB_ERR_MESS) {
         if (str) {
@@ -173,9 +173,19 @@ int my_perror(char *str, int err, int val)
     return val;
 }
 
-int my_lperror(char *str, int err, int val)
+int my_lputerr(char *str, int err, int val)
 {
     if (LIB_PRINT_ERROR)
-        return my_perror(str, err, val);
+        return my_puterr(str, err, val);
     return val;
+}
+
+int my_perror(char *str, int val)
+{
+    return my_puterr(str, errno, val);
+}
+
+int my_lperror(char *str, int val)
+{
+    return my_lputerr(str, errno, val);
 }
