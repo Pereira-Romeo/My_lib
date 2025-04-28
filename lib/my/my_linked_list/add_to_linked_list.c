@@ -13,7 +13,8 @@ linked_list_t *init_linked_list(void)
     linked_list_t *list = my_calloc(1, sizeof(linked_list_t));
 
     if (list == NULL) {
-        write(STDERR_FILENO, "init linked list: malloc fail\n", 30);
+        if (LIB_PRINT_ERROR)
+            write(STDERR_FILENO, "init linked list: ", 18);
         return NULL;
     }
     list->head = NULL;
@@ -26,7 +27,8 @@ static cell_t *make_cell(cell_t *prev, void *data, cell_t *next)
     cell_t *cell = my_calloc(1, sizeof(cell_t));
 
     if (cell == NULL) {
-        write(STDERR_FILENO, "make cell: malloc fail\n", 23);
+        if (LIB_PRINT_ERROR)
+            write(STDERR_FILENO, "make cell: ", 11);
         return NULL;
     }
     cell->prev = prev;
