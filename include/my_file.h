@@ -8,6 +8,7 @@
 #ifndef MY_FILES_H
     #define MY_FILES_H
     #include <unistd.h>
+    #include "my_errno.h"
 
 //Create a file with given rights
 //@param filepath file to create

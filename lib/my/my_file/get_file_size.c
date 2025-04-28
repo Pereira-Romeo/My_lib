@@ -12,9 +12,7 @@ int get_file_size(char *filepath)
 {
     struct stat info;
 
-    if (stat(filepath, &info) == -1) {
-        write(STDERR_FILENO, "get file size: stat error\n", 26);
-        return -1;
-    }
+    if (stat(filepath, &info) == -1)
+        return my_lperror("get_file_size", -1);
     return info.st_size;
 }

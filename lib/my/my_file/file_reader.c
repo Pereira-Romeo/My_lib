@@ -29,12 +29,11 @@ char *read_file(char *filepath)
         return NULL;
     buffer = my_calloc(file_len + 1, sizeof(char));
     if (buffer == NULL) {
-        write(STDERR_FILENO, "read_file: malloc fail\n", 23);
         close_file(fd);
         return NULL;
     }
     if (read(fd, buffer, file_len) == -1) {
-        write(STDERR_FILENO, "read_file: read fail\n", 21);
+        my_lperror("read_file", -1);
         free(buffer);
         close_file(fd);
         return NULL;
