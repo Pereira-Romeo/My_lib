@@ -31,7 +31,7 @@ void *my_calloc(int nmemb, int bytes)
         return NULL;
     array = malloc(len);
     if (array == NULL) {
-        write(STDERR_FILENO, "my_calloc: couldn't allocate memory\n", 36);
+        my_lperror("my_calloc", 84);
         return NULL;
     }
     for (int i = 0; i < len; i++)

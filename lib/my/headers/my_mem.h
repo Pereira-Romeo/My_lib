@@ -10,6 +10,7 @@
     #include <unistd.h>
     #include <stdlib.h>
     #include "my_bool.h"
+    #include "my_errno.h"
 
     #if __BYTE_ORDER == __LITTLE_ENDIAN
         #define MY_SWAP_ENDIAN TRUE
