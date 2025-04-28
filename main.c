@@ -11,17 +11,12 @@
 
 int main(void)
 {
-    char *str = "hello why not, i am dying.\nwtf is going on i can't use any of those letters aaaaaaaaaaaaaaaaah\n";
+    char *str = "hello why not, i am dying.\nwaaaaaaaaaahhhhhh\n";
     char *separator = " \n\t";
     int str_index = 0;
     int c_index = 0;
     int found = 0;
 
-    found = one_c_is_in(separator, str, &str_index, &c_index);
-    printf("%s%c%s%.0d\n", (found) ? "found '" : "found nothing",
-    (found) ? separator[c_index] : '.',
-    (found) ? "' at: " : "",
-    (found) ? str_index : 0);
     found = one_c_is_in(separator, str + 20, &str_index, &c_index);
     printf("%s%c%s%.0d\n", (found) ? "found '" : "found nothing",
     (found) ? separator[c_index] : '.',

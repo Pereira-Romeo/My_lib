@@ -36,8 +36,7 @@ The include folder is made for all .h files.
 
 Most of the doc string in the header files are not up to date with new standards
 
-the coding style checker does not work with this repo due to unknown reasons :cry:\
-meaning this repo may not fit the coding style perfectly.
+The coding style checker is fixed!... nah i'm joking, it's still broken cuz why would they fix their work... anyway, found what's causing it to die and put it in comment, it's in test/my_perror_tests.c (wich are not up to date with new version of my_errno lib anyway).
 
 
 # Dependencies

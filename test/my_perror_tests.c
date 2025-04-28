@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 
+/*
 int write_all_errors_in_test_files(void)
 {
     int my_perror_fd = create_file("./test/my_perror.out", 00762);
@@ -24,13 +25,13 @@ int write_all_errors_in_test_files(void)
     if (dup2(perror_fd, STDERR_FILENO) == -1)
         return 84;
     close_file(perror_fd);
-    for (int i =1; i <= NB_ERR_MESS; i++) {
+    for (int i = 1; i <= NB_ERR_MESS; i++) {
         write(STDERR_FILENO, strerror(i), my_strlen(strerror(i)));
         write(STDERR_FILENO, ".\n", 2);
     }
     return 0;
 }
-
+---------------THIS FUNC BREAKS THE CODING STYLE CHECKER----------------
 //shows i + 1 because we did not write errno 0 in the error output
 int compare_outputs(char **my_perror_list, char **perror_list)
 {
@@ -49,6 +50,7 @@ int compare_outputs(char **my_perror_list, char **perror_list)
     free_strtab(perror_list);
     return 0;
 }
+
 
 int compare_outputs_handler(void)
 {
@@ -81,4 +83,4 @@ int main(void)
     if (write_all_errors_in_test_files() == 0)
         return compare_outputs_handler();
     return 84;
-}
+}*/
