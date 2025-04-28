@@ -10,7 +10,6 @@
     #include <stddef.h>
     #include <stdlib.h>
     #include "my_mem.h"
-    #include "my_errno.h"
 
 /*cell_t contains:
 prev: previous cell in list
