@@ -26,6 +26,28 @@ int my_char_is_in(char c, char *str, int *index)
     return FALSE;
 }
 
+int one_c_is_in(char *c, char *str, int *str_index, int *c_index)
+{
+    int tmp = 0;
+    int c_tmp = 0;
+    int i = 0;
+
+    if (!str_index)
+        str_index = &tmp;
+    if (!c_index)
+        c_index = &c_tmp;
+    if (!str)
+        return FALSE;
+    for (; str[i]; i++) {
+        if (my_char_is_in(str[i], c, c_index)) {
+            *str_index = i;
+            return TRUE;
+        }
+    }
+    *str_index = i;
+    return FALSE;
+}
+
 int my_str_isalnum_and(char *str, char *specials)
 {
     for (char *ptr = str; *ptr != '\0'; ptr++)

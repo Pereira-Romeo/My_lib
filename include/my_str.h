@@ -120,6 +120,17 @@ int my_char_isprint(char const c);
  */
 int my_char_isupper(char const c);
 
+/** Looks in str, for one of the char contained in c, store the index
+ * of wich char in c was encountered and the index of where it was found
+ * @param c list of characters to find
+ * @param str string in wich to look for one of the characters
+ * @param str_index if not NULL, store the index of the char inside of str
+ * @param c_index if not NULL, store the index the of char inside of c
+ * @returns TRUE (1)
+ * OR FALSE (0)
+ */
+int one_c_is_in(char *c, char *str, int *str_index, int *c_index);
+
 /** Verify str is alphanumeric only
  * @param c character to check
  * @returns TRUE (1)
