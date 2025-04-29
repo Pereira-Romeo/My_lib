@@ -36,4 +36,19 @@ int my_square_root(int nb);
 //@returns the square root of nb
 //@note this function has a max precision of e-15 (15 digits after the unit)
 double my_sqrt(double nb);
+
+/** Get the lowest number of two
+ * @param n1 first number
+ * @param n2 second number
+ * @returns the smaller number
+ */
+int my_min(int n1, int n2);
+
+/** Get the highest number of two
+ * @param n1 first number
+ * @param n2 second number
+ * @returns the bigger number
+ */
+int my_max(int n1, int n2);
+
 #endif /* MY_MATH_H */
