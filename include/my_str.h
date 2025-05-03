@@ -20,6 +20,8 @@ int my_strlen(char *str);
 
 /** Finds the length from index n to the
  * next occurrence of atleast one character inside c
+ * \/!\ [DEPRECATED] /!\ do not use, my_char_is_in() can do the job,
+ * just move the pointer of your string up to n
  * @param str string
  * @param n index to start at
  * @param c list of characters to stop at
@@ -32,6 +34,12 @@ int mstrn_to_clen(char *str, int n, char *c);
  * @return length of nb
  */
 int my_intlen(int nb);
+
+/** Finds the number of digits in nb
+ * @param nb long int
+ * @return length of nb
+ */
+int my_lgilen(long int nb);
 
 /** Finds the number of digits in nb
  * @param nb long long int
