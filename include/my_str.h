@@ -66,6 +66,12 @@ int nullify_from_till(char *src, int n, char c, int backward);
  */
 char *my_strstr(char *str, char *to_find);
 
+/** Get the number of occurrences of a letter
+ * @param str string to count from
+ * @param c character to count
+ * @returns the number of occurences of c in str
+ */
+int my_nb_occ(char *str, char c);
 
 //my_is*.c
 
