@@ -27,5 +27,5 @@ int main(void)
     (found) ? separator[c_index] : '.',
     (found) ? "' at: " : "",
     (found) ? str_index : 0);
-    return 0 ;
+    return 0;
 }
