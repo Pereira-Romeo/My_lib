@@ -1,5 +1,7 @@
 # A standard C99 library
 
+ ![coding style check](https://github.com/Pereira-Romeo/My_lib/actions/workflows/cs_check.yml/badge.svg)
+
 This project is a personnal project[^1] that i work on during free time to deepen my knowledge about the C standard library and C in general.
 Along this project i am also learning how to use github and all its tools.
 
