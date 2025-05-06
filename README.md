@@ -14,6 +14,7 @@ Along this project i am also learning how to use github and all its tools.
  - [Known issues](#known-issues-work-in-progress).
  - [Dependencies](#dependencies).
  - [Coming soon](#coming-soon-or-atleast-some-day-in-the-future).
+ - [Manuals]().
 
 
 # How to use this library
@@ -84,7 +85,12 @@ the sub libraries my_errno, my_mem and my_bool are used all over this library, d
 Ticked items are _regularly_ worked on (as regularly as my free time and will allows)\
 Unticked items are _occasionaly_ worked on.
 
- - [x] A new printf (still without mallocs) wich has "my_printf" and "my_dprintf".
+ - [x] New conversions to [my_printf](https://github.com/Pereira-Romeo/My_lib/tree/main).
  - [x] Using my_lperror() for all error messages in the library.
  - [ ] Update the docstring in all header files.
  - [ ] Make this readme look better.
+ - [ ] Manuals for each sub-lib of My_lib.
+
+# Man My_lib
+
+ - [my_printf lib](https://github.com/Pereira-Romeo/My_lib/blob/main/README.md).
