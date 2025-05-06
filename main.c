@@ -18,12 +18,12 @@ int main(void)
     int found = 0;
 
     found = one_c_is_in(separator, str + 20, &str_index, &c_index);
-    printf("%s%c%s%.0d\n", (found) ? "found '" : "found nothing",
+    my_printf("%s%c%s%.0d\n", (found) ? "found '" : "found nothing",
     (found) ? separator[c_index] : '.',
     (found) ? "' at: " : "",
     (found) ? str_index : 0);
     found = one_c_is_in(separator, str + my_strlen(str), &str_index, &c_index);
-    printf("%s%c%s%.0d\n", (found) ? "found '" : "found nothing",
+    my_printf("%s%c%s%.0d\n", (found) ? "found '" : "found nothing",
     (found) ? separator[c_index] : '.',
     (found) ? "' at: " : "",
     (found) ? str_index : 0);

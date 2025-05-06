@@ -1,56 +1,38 @@
 /*
-** EPITECH PROJECT, 2024
-** mod_p.c
+** EPITECH PROJECT, 2025
+** my_printf
 ** File description:
-** .
+** mod_p
 */
 
-#include <stdlib.h>
-#include "../headers/my.h"
+#include "../headers/my_printf.h"
 
-static int base_switch(long long int nb, int base)
+int get_ptr_hexa(char buffer[], unsigned long long int nb, char *chars)
 {
-    char *hexa = "0123456789abcdef";
-    long long int quotient = nb / base;
     int len = 0;
+    int reader = 0xF;
 
-    if (nb < 0 || base <= 0)
-        return 84;
-    nb -= (base * quotient);
-    if (quotient < base) {
-        if (quotient > 0)
-            len += my_putchar(hexa[quotient]);
-    } else
-        len += base_switch(quotient, base);
-    len += my_putchar(hexa[nb]);
-    return len;
+    for (int i = sizeof(long long int) * 2; i > 0; i--) {
+        buffer[i] = chars[nb & reader];
+        nb >>= 4;
+        if (!nb)
+            break;
+        len++;
+    }
+    return sizeof(long long int) * 2 - len;
 }
 
-int base_switch_size(long long int nb, int base)
+int mod_p(va_list list, fspe_t *pf)
 {
-    long long int quotient = nb / base;
+    char buffer[] = "00000000000000000";
+    char *ptr = buffer;
+    long long int nb = (long long int) va_arg(list, void *);
     int len = 0;
 
-    if (nb < 0 || base <= 0)
-        return 84;
-    nb -= (base * quotient);
-    if (quotient < base) {
-        if (quotient > 0)
-            len += 1;
-    } else
-        len += base_switch_size(quotient, base);
-    len += 1;
-    return len;
-}
-
-int mod_p(int width, void *p)
-{
-    int len = 0;
-    long long int adr = (long long int) p;
-
-    len += padding(base_switch_size(adr, 16) + 2, width);
-    len += my_putchar('0');
-    len += my_putchar('x');
-    base_switch(adr, 16);
+    ptr += get_ptr_hexa(buffer, nb, BASE_CHARS);
+    len += pf_width_handler(2 + my_strlen(ptr), pf);
+    len += write(pf->fd, "0x", 2);
+    len += zero_padding(my_strlen(ptr), pf);
+    len += write(pf->fd, ptr, my_strlen(ptr));
     return len;
 }
