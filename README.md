@@ -14,7 +14,7 @@ Along this project i am also learning how to use github and all its tools.
  - [Known issues](#known-issues-work-in-progress).
  - [Dependencies](#dependencies).
  - [Coming soon](#coming-soon-or-atleast-some-day-in-the-future).
- - [Manuals]().
+ - [Manuals](#man-my_lib).
 
 
 # How to use this library
