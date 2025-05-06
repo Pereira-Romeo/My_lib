@@ -29,6 +29,8 @@ int open_file(char const *filepath)
 
 int close_file(int fd)
 {
+    if (fd < 0)
+        return 0;
     if (close(fd) == -1)
         return my_lperror("close_file", -1);
     return 0;

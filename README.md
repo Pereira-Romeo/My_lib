@@ -25,6 +25,7 @@ Along this project i am also learning how to use github and all its tools.
 2. add all your .c files to a directory
 3. put this directory in lib/my/ and add a header file for your functions in lib/my/headers
 4. and finally add to this [Makefile](./lib/my/Makefile) in lib/my/ : ```SRC += $(wildcard [your_dir]/*.c)```
+
     ```
     SRC := $(wildcard my_errno/*.c)
     SRC += $(wildcard my_file/*.c)
