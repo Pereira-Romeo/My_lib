@@ -85,7 +85,7 @@ the sub libraries my_errno, my_mem and my_bool are used all over this library, d
 Ticked items are _regularly_ worked on (as regularly as my free time and will allows)\
 Unticked items are _occasionaly_ worked on.
 
- - [x] New conversions to [my_printf](https://github.com/Pereira-Romeo/My_lib/tree/main).
+ - [x] New conversions to [my_printf](https://github.com/Pereira-Romeo/my_printf/).
  - [x] Using my_lperror() for all error messages in the library.
  - [ ] Update the docstring in all header files.
  - [ ] Make this readme look better.
