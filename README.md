@@ -93,4 +93,4 @@ Unticked items are _occasionaly_ worked on.
 
 # Man My_lib
 
- - [my_printf lib](https://github.com/Pereira-Romeo/My_lib/blob/main/README.md).
+ - [my_printf lib](https://github.com/Pereira-Romeo/my_printf/blob/main/README.md).
