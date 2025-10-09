@@ -20,6 +20,7 @@ int my_strlen(char *str);
 
 /** Finds the length from index n to the
  * next occurrence of atleast one character inside c
+ *
  * \/!\ [DEPRECATED] /!\ do not use, my_char_is_in() can do the job,
  * just move the pointer of your string up to n
  * @param str string
