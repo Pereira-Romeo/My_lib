@@ -85,11 +85,11 @@ the sub libraries my_errno, my_mem and my_bool are used all over this library, d
 
 # Coming soon (or atleast, some day in the future)
 
-Ticked items are _regularly_ worked on (as regularly as my free time and will allows)\
-Unticked items are _occasionaly_ worked on.
+Ticked items are _priority_ items
 
  - [x] New conversions to [my_printf](https://github.com/Pereira-Romeo/my_printf/).
  - [x] Using my_lperror() for all error messages in the library.
+ - [x] bash script or C program to clean up library at end of projects
  - [ ] Update the docstring in all header files.
  - [ ] Make this readme look better.
  - [ ] Manuals for each sub-lib of My_lib.
