@@ -18,7 +18,6 @@ LDFLAGS = -L lib/ -lmy -lm
 
 CLEAR_LIB_CMD := ./lib/my/clear_lib.sh
 
-CLEAR_INIT_CMD := ./lib/my/clear_lib.sh --init #rm license & readme
 
 all:    mylib $(NAME)
 
@@ -29,11 +28,14 @@ $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ) $(LDFLAGS) $(CFLAGS)
 
 # Deletes any unused dependencie from the lib (use at end of project)
-clear_lib:
+clear_lib:  # clear all not needed lib files
 	$(CLEAR_LIB_CMD)
 
-init_clear:
-	$(CLEAR_INIT_CMD)
+init_clear: # only remove license and readme
+	$(CLEAR_LIB_CMD) --init
+
+last_clear: # clear_lib + delete clear script o7
+	$(CLEAR_LIB_CMD) --last
 
 clean:
 	make -C lib/my fclean

@@ -20,7 +20,7 @@ src_path="$project_path/src"
 #------------------- flags -----------------------------------------
 
 f_debug=false
-
+f_last=false
 
 #------------------- flag funcs ------------------------------------
 
@@ -44,6 +44,7 @@ initial_clear() {
 
 last_clear() {
     echo "clearing everything and deleting clear script"
+    f_last=true
 }
 
 
@@ -193,3 +194,8 @@ echo "but it's all in one pipe ?"
 #     done < "$src"
 #     echo -e "\033[0;0m"
 # done
+
+if [ "$f_last" == "true" ]; then # should always be last in this script
+    echo "deleting self, bye :)"
+    rm $script_dir/clear_lib.sh
+fi
