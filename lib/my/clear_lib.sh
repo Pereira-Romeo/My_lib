@@ -16,18 +16,25 @@ user_headers=""
 project_path="$(dirname $(dirname $script_dir))" #needs change adapt with script_dir
 src_path="$project_path/src"
 
-#------------------- helper ----------------------------------------
 
-print_helper_and_exit() {
+#------------------- flags -----------------------------------------
+
+f_debug=false
+
+
+#------------------- flag funcs ------------------------------------
+
+debug_flag() {
+    f_debug=true
+}
+
+help() {
     echo -e "\033[1mUsage:\033[0m"
     echo "This programm is supposed to be in the lib/my/ dir of your project, it currently expects the following paths:"
     echo "  lib: $lib_path; $lib_header_path"
     echo "  src: $src_path"
     exit 0
 }
-
-
-#------------------- flag funcs ------------------------------------
 
 initial_clear() {
     echo "executing initial clear at $project_path"
@@ -39,18 +46,21 @@ last_clear() {
     echo "clearing everything and deleting clear script"
 }
 
+
 #------------------- flag handling funcs ---------------------------
-f_debug=false
 
-short_flags_list=("d")
+short_flags_list=("d" "h")
+short_flags_funcs=(debug_flag help)
 
-short_flag_handler() {
-    if [[ "$1" =~ "d" ]]; then
-        f_debug=true
-    fi
-    if [[ "$1" =~ "h" ]]; then
-        print_helper_and_exit
-    fi
+short_flag_handler() { #prolly gonna have to be able to deal with more args
+    for flag in $1; do
+        for ((i=0;i<${#short_flags_list[@]};i++)); do
+            if [[ "$flag" == "${short_flags_list[$i]}" ]]; then
+                ${short_flags_funcs[$i]}
+                break
+            fi
+        done
+    done
 }
 
 
@@ -72,7 +82,7 @@ do
     if [ "${arg::2}" == "--" ]; then
         long_flag_handler "${arg:2}"
     elif [ "${arg::1}" == "-" ]; then
-        short_flag_handler $arg #needs to loop on each letter
+        short_flag_handler "${arg:1}"
     fi
 done
 
