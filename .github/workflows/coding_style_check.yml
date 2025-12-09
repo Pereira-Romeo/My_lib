@@ -1,12 +1,12 @@
 name: coding_style_check
 
-on: 
+on:
   push:
-    branches-ignore:
-      - 'ga-ignore-*'
+    branches:
+      - 'main'
   pull_request:
-    branches-ignore:
-      - 'ga-ignore-*'
+    branches:
+      - 'main'
 
 jobs:
   check_coding_style:
