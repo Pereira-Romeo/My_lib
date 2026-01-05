@@ -26,6 +26,8 @@ mylib:
 
 $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ) $(LDFLAGS) $(CFLAGS)
+	mkdir -p .build
+	mv $(OBJ) .build/
 
 # Deletes any unused dependencie from the lib (use at end of project)
 clear_lib:  # clear all not needed lib files
@@ -39,7 +41,7 @@ last_clear: # clear_lib + delete clear script o7
 
 clean:
 	make -C lib/my fclean
-	rm -f $(OBJ)
+	rm -f .build/*
 
 fclean: clean
 	rm -f libmy.a
