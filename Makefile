@@ -23,10 +23,12 @@ mylib:
 
 $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ) $(LDFLAGS) $(CFLAGS)
+	mkdir -p .build
+	mv $(OBJ) .build/
 
 clean:
 	make -C lib/my fclean
-	rm -f $(OBJ)
+	rm -f .build/*
 
 fclean: clean
 	rm -f libmy.a
