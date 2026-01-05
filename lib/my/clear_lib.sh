@@ -119,6 +119,7 @@ if [[ "${#headers[@]}" &&  ${headers[0]} =~ '.h'  ]]; then
     do
         echo "- $entry"
     done
+    # call func to handle everything about the headers ?
 else
     echo -e "\033[1;34mEmpty headers file\033[0;0m"
     exit 0
@@ -137,7 +138,7 @@ echo "but it's all in one pipe ?"
 
 
 
-
+echo "$(ls lib/my)"
 
 
 
