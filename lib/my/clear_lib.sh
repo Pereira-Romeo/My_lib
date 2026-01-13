@@ -1,9 +1,10 @@
 #! /usr/bin/env bash
 
-script_dir="$(cd "$(dirname "$0")" && pwd)" # should always get the correct path
+script_dir="$(dirname "$0")"
 
 lib_path=$script_dir
 lib_header_path="$lib_path/headers"
+lhp_len=$(( ${#lib_header_path} + 1 ))
 
 lib_funcs=()
 lib_funcs_i=0
@@ -104,52 +105,35 @@ fi
 #         exit 1
 #     fi
 # fi
-#------------------- cleaning script -------------------------------
 
+#-------------------------------------------------------------------
+#------------------- cleaning script -------------------------------
+#-------------------------------------------------------------------
+
+#------------------- lib's dependencies tree -----------------------
+
+LIB_DEPENDENCIES=()
+LIB_HEADERS=()
 
 #listing all .h in headers
-headers=`find $lib_header_path -type f -name '*.h'`
+mapfile -t HEADER_FILES <<< $(find "$lib_header_path" -type f -name '*.h')
+
 if [ "$?" == "1" ]; then
     echo -e "\033[1;31mERROR:\033[0;0m path to library's headers may be wrong"
     exit 1
 fi
-if [[ "${#headers[@]}" &&  ${headers[0]} =~ '.h'  ]]; then
+if [[ "${#HEADER_FILES[@]}" &&  ${HEADER_FILES[0]:$(( ${#HEADER_FILES[0]} - 2 ))} == '.h'  ]]; then
     echo "lib's header files:"
-    for entry in $headers
-    do
-        echo "- $entry"
+    for ((i=0;i<${#HEADER_FILES[@]};i++)); do
+        echo "- ${HEADER_FILES[i]:$lhp_len}"
     done
-    # call func to handle everything about the headers ?
 else
-    echo -e "\033[1;34mEmpty headers file\033[0;0m"
+    echo -e "\033[1;34mEmpty library headers file\033[0;0m"
     exit 0
 fi
 
-
-{
-    echo "wtf"
-
-    echo "multi line echo ?"
-
-    echo "using multiple echo ?"
-} | lolcat
-
-echo "but it's all in one pipe ?"
-
-
-
-echo "$(ls lib/my)"
-
-
-
-
-
-
-
-
-
-
-
+# maybe do list of tuples like:
+# ( ("./lib/my/headers/my_file.h", "my_file.h") )
 
 # if [ "$f_debug" == "true" ]; then
 #     echo "x2 dirname of lib_path $(dirname $(dirname $lib_path))"
