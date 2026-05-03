@@ -37,11 +37,11 @@ CC = gcc
 #.cpp compiler
 CXX = g++
 
-#generic flags
+#generic error flags
 CFLAGS = -Wall -Wextra -Wformat-nonliteral -Wcast-align -Wpointer-arith  \
 -Wmissing-declarations -Winline -Wundef \
 -Wcast-qual -Wshadow -Wwrite-strings -Wno-unused-parameter \
--Wfloat-equal -pedantic -Woverloaded-virtual
+-Wfloat-equal -pedantic
 
 #generic library flags
 LDFLAGS = -L lib/ -lmy -lm
@@ -58,6 +58,7 @@ ifeq ($(EXT), .c)
 else
 #.cpp specific options
 	COMPILER = $(CXX)
+	CFLAGS += -Woverloaded-virtual
 	CFLAGS += -Iinclude/
 	LDFLAGS +=
 	FLAGS = $(CFLAGS) $(LDFLAGS) $(CXXFLAGS)
@@ -73,6 +74,7 @@ all: mylib $(NAME)
 .PHONY: mylib
 mylib:
 	@ make -C lib/my
+	@ echo ""
 
 
 .PHONY: buildprint
@@ -107,11 +109,17 @@ clean:
 .PHONY: fclean
 fclean: clean
 	@ make -C lib/my fclean
+	@ echo ""
 	@ echo "$(PBCP)Deleting:$(PRESET) $(NAME)"
 	@ rm -f $(NAME)
 
+.PHONY: delspacing
+delspacing:
+	@ echo ""
+	@ echo ""
+
 .PHONY: re
-re:     fclean all
+re:     fclean delspacing all
 
 ##================================================================##
 ##================= Fancy Stuff ==================================##
