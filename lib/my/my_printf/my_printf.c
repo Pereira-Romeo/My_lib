@@ -20,7 +20,7 @@ const spe_t spe_tab[] =
     {'f', &mod_f}, //double
     {'p', &mod_p}, //pointer
     {'c', &mod_c}, //unsigned char
-    {'i', NULL}, //int, long int, long long int
+    {'i', &mod_d}, //int, long int, long long int
     {'F', NULL}, //double
     {'u', NULL}, //unsigned decimal conversion
     {'a', NULL}, //double in hexadecimal
@@ -38,7 +38,7 @@ const spe_t spe_tab[] =
 //finds c inside str and puts it's index in index
 //if c wasn't found, str[index] will be the end of the str
 static
-int pf_is_in(char c, char *str, int *index)
+int pf_is_in(char c, const char *str, int *index)
 {
     int i = 0;
 
@@ -55,7 +55,7 @@ int pf_is_in(char c, char *str, int *index)
 }
 
 static
-int print_segment(char **ptr, int i, fspe_t *pf)
+int print_segment(const char **ptr, int i, fspe_t *pf)
 {
     int len = 0;
 
@@ -72,7 +72,7 @@ int print_segment(char **ptr, int i, fspe_t *pf)
 //should add up length to current_len
 //printf("\e[1;33mptr after filling:\e[0m %s\n", *ptr);
 static
-int print_mod(char **ptr, int i, va_list list, fspe_t *pf)
+int print_mod(const char **ptr, int i, va_list list, fspe_t *pf)
 {
     int len = 0;
 
@@ -93,9 +93,9 @@ int print_mod(char **ptr, int i, va_list list, fspe_t *pf)
 }
 
 //if using c_is_in, this loop needs to be updated to be optimised
-int printf_loop(char *format, va_list list, fspe_t *pf)
+int printf_loop(const char *format, va_list list, fspe_t *pf)
 {
-    char *ptr = format;
+    const char *ptr = format;
     int index = 0;
     int val = 0;
 
@@ -112,7 +112,7 @@ int printf_loop(char *format, va_list list, fspe_t *pf)
     return print_segment(&ptr, index, pf);
 }
 
-int my_printf(char *format, ...)
+int my_printf(const char *format, ...)
 {
     fspe_t pf = {STDOUT_FILENO, 0, -1, -1, 0, 0};
     int len = 0;
@@ -126,7 +126,7 @@ int my_printf(char *format, ...)
     return len;
 }
 
-int my_dprintf(int fd, char *format, ...)
+int my_dprintf(int fd, const char *format, ...)
 {
     fspe_t pf = {fd, 0, 0, 0, 0, 0};
     int len = 0;

@@ -18,9 +18,9 @@ static int c_is_in(char c, char *str)
     return 0;
 }
 
-int my_strlen(char *str)
+int my_strlen(const char *str)
 {
-    char *ptr = str;
+    const char *ptr = str;
 
     while (ptr && *ptr) {
         ptr++;

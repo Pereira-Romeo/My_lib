@@ -33,7 +33,7 @@
  * @returns number of characters written to the output
  * OR -1 on error
 */
-int my_printf(char *format, ...);
+int my_printf(const char *format, ...);
 
 /** write format to a file descriptor
  * @param fd file descriptor to write at
@@ -42,15 +42,16 @@ int my_printf(char *format, ...);
  * @returns number of characters written to the output
  * OR -1 on error
 */
-int my_dprintf(int fd, char *format, ...);
+int my_dprintf(int fd, const char *format, ...);
 
-//fspe_t struct for my_printf
-//@param fd the output
-//@param current_len current number of characters written
-//@param width min width
-//@param precision max len of str or numbers after the dot
-//@param flags string with all flags
-//@param len_mod type length modifier
+/** fspe_t struct for my_printf
+ * @param fd the output
+ * @param current_len current number of characters written
+ * @param width min width
+ * @param precision max len of str or numbers after the dot
+ * @param flags string with all flags
+ * @param len_mod type length modifier
+*/
 typedef struct fspe_s {
     int fd;
     int current_len;
@@ -69,7 +70,7 @@ void reset_pf(fspe_t *pf);
 //@param list va_list
 //@note ptr will be moved and once this function stop, it should be on top
 //of the specifier, if there is nothing then the specifier is missing
-void make_fspe_mod(fspe_t *pf, char **ptr, va_list list);
+void make_fspe_mod(fspe_t *pf, const char **ptr, va_list list);
 
 //spe_t struct for my_printf
 //@param letter the specifier

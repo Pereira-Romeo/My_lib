@@ -8,7 +8,7 @@
 #include "../headers/my_str.h"
 #include "../headers/my_mem.h"
 
-char *my_strdup(char *src)
+char *my_strdup(const char *src)
 {
     char *dest = NULL;
 
