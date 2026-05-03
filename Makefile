@@ -88,15 +88,15 @@ endif
 
 $(NAME): $(OBJ)
 	@ $(COMPILER) -o $@ $(OBJ) $(FLAGS) || \
-		( echo "$(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $@"; \
-		exit 1 )
+	( echo "$(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $@"; \
+	exit 1 )
 	@ echo "$(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $@"
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%$(EXT) | buildprint
 	@ mkdir -p $(dir $@)
 	@ $(COMPILER) $(FLAGS) -o $@ -c $< || \
-		( echo "    $(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"; \
-		exit 1 )
+	( echo "    $(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"; \
+	exit 1 )
 	@ echo "    $(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"
 
 
@@ -109,7 +109,6 @@ clean:
 .PHONY: fclean
 fclean: clean
 	@ make -C lib/my fclean
-	@ echo ""
 	@ echo "$(PBCP)Deleting:$(PRESET) $(NAME)"
 	@ rm -f $(NAME)
 

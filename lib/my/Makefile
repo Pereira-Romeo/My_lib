@@ -109,12 +109,13 @@ $(NAME): $(OBJ)
 		exit 1 )
 	@ echo "$(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $@"
 	@ mv libmy.a ../
+	@ cp headers/*.h ../../include/
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c | buildprint
 	@ mkdir -p $(dir $@)
 	@ $(CC) -o $@ -c $< || \
-		( echo "    $(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"; \
-		exit 1 )
+	( echo "    $(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"; \
+	exit 1 )
 	@ echo "    $(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"
 
 
