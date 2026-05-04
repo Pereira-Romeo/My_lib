@@ -73,8 +73,8 @@ OBJ := $(SRC:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
 ##================================================================##
 ##================= Compiling options ============================##
 ##================================================================##
-#.c compiler
-CC = gcc
+#.c compiler, inherited from main makefile
+CC = $(MY_CC)
 
 #generic flags
 CFLAGS = -Wall -Wextra \
@@ -96,6 +96,7 @@ all: $(NAME)
 
 .PHONY: buildprint
 buildprint:
+# this if runs at parse time and not run time (but it don't matter for the use)
 ifeq ("$(wildcard ./$(NAME))","")
 	@ echo "$(PBC)Building $(NAME):$(PRESET)";
 else
@@ -108,7 +109,7 @@ $(NAME): $(OBJ)
 		( echo "$(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $@"; \
 		exit 1 )
 	@ echo "$(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $@"
-	@ mv libmy.a ../
+	@ cp libmy.a ../
 	@ cp headers/*.h ../../include/
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c | buildprint
@@ -127,6 +128,7 @@ clean:
 .PHONY: fclean
 fclean: clean
 	@ echo "$(PBCP)Deleting:$(PRESET) $(NAME)"
+	@ rm -f $(NAME)
 	@ rm -f ../$(NAME)
 
 .PHONY: re

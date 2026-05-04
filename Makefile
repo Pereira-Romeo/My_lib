@@ -54,14 +54,14 @@ ifeq ($(EXT), .c)
 	COMPILER = $(CC)
 	CFLAGS += -iquote include/
 	LDFLAGS +=
-	FLAGS = $(CFLAGS) $(LDFLAGS)
+	FLAGS = $(CFLAGS)
 else
 #.cpp specific options
 	COMPILER = $(CXX)
 	CFLAGS += -Woverloaded-virtual
 	CFLAGS += -Iinclude/
 	LDFLAGS +=
-	FLAGS = $(CFLAGS) $(LDFLAGS) $(CXXFLAGS)
+	FLAGS = $(CFLAGS) $(CXXFLAGS)
 endif
 
 
@@ -73,21 +73,22 @@ all: mylib $(NAME)
 
 .PHONY: mylib
 mylib:
-	@ make -C lib/my
+	@ export MY_CC=$(CC); make -C lib/my
 	@ echo ""
 
 
 .PHONY: buildprint
 buildprint:
-ifeq ("$(wildcard ./$(NAME))","")
-	@ echo "$(PBC)Building $(NAME):$(PRESET)";
-else
-	@ echo "$(PBC)Nothing to build for $(NAME).$(PRESET)"
-endif
+# this if runs at run time and not parse time (necessary in this one)
+	@ [ -f $(NAME) ] && { \
+		echo "$(PBC)Nothing to build for $(NAME).$(PRESET)"; \
+	} || { \
+		echo "$(PBC)Building $(NAME):$(PRESET)"; \
+	}
 
 
 $(NAME): $(OBJ)
-	@ $(COMPILER) -o $@ $(OBJ) $(FLAGS) || \
+	@ $(COMPILER) -o $@ $(OBJ) $(FLAGS) $(LDFLAGS) || \
 	( echo "$(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $@"; \
 	exit 1 )
 	@ echo "$(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $@"
