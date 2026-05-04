@@ -31,14 +31,14 @@ typedef struct err_val_s {
  * @param val value to return
  * @returns val
  */
-int my_puterr(char *str, int err, int val);
+int my_puterr(const char *str, int err, int val);
 
 /** Write error message corresponding to errno
  * @param str if not NULL, adds [str: ] before the error message
  * @param val value to return
  * @returns val
  */
-int my_perror(char *str, int val);
+int my_perror(const char *str, int val);
 
 /** Write error message corresponding to err
  * @param str if not NULL, adds [str: ] before the error message
@@ -49,7 +49,7 @@ int my_perror(char *str, int val);
  * @note If LIB_PRINT_ERROR is FALSE, this function will not print anything.
  * If LIB_PRINT_ERROR is TRUE, it will print the error
  */
-int my_lputerr(char *str, int err, int val);
+int my_lputerr(const char *str, int err, int val);
 
 /** Write error message corresponding to errno
  * @param str if not NULL, adds [str: ] before the error message
@@ -58,6 +58,6 @@ int my_lputerr(char *str, int err, int val);
  * @note If LIB_PRINT_ERROR is FALSE, this function will not print anything.
  * If LIB_PRINT_ERROR is TRUE, it will print the error
  */
-int my_lperror(char *str, int val);
+int my_lperror(const char *str, int val);
 
 #endif /* MY_PERROR_H */
