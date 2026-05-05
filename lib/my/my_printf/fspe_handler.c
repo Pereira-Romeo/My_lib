@@ -41,23 +41,23 @@ static
 int add_flags(char flag, fspe_t *mod)
 {
     switch (flag) {
-    case '#':
-        mod->flags |= 1;
-        return TRUE;
-    case '0':
-        mod->flags |= 2;
-        return TRUE;
-    case '-':
-        mod->flags |= 4;
-        return TRUE;
-    case ' ':
-        mod->flags |= 8;
-        return TRUE;
-    case '+':
-        mod->flags |= 16;
-        return TRUE;
-    default:
-        return FALSE;
+        case '#':
+            mod->flags |= 1;
+            return TRUE;
+        case '0':
+            mod->flags |= 2;
+            return TRUE;
+        case '-':
+            mod->flags |= 4;
+            return TRUE;
+        case ' ':
+            mod->flags |= 8;
+            return TRUE;
+        case '+':
+            mod->flags |= 16;
+            return TRUE;
+        default:
+            return FALSE;
     }
 }
 

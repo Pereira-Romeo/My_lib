@@ -168,7 +168,7 @@ int my_puterr(const char *str, int err, int val)
             write(STDERR_FILENO, ": ", 2);
         }
         write(STDERR_FILENO, error_tab[err].e_mess,
-        error_tab[err].mess_size);
+            error_tab[err].mess_size);
     }
     return val;
 }

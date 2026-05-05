@@ -32,7 +32,7 @@ char *strdup2cat(char *s1, char *s2, char *s3)
 
     if (s1 != NULL && s2 != NULL && s3 != NULL)
         str = my_calloc(my_strlen(s1) + my_strlen(s2) + my_strlen(s3) + 1,
-        sizeof(char));
+            sizeof(char));
     if (str == NULL)
         return NULL;
     my_strcpy(str, s1);
