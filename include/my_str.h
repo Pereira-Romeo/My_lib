@@ -16,7 +16,7 @@
  * @param str string
  * @return length of str
  */
-int my_strlen(char *str);
+int my_strlen(const char *str);
 
 /** Finds the length from index n to the
  * next occurrence of atleast one character inside c
@@ -376,7 +376,7 @@ int my_strncmp(char const *s1, char const *s2, int n);
  * @returns pointer to dest
  * @note dest needs to be big enough as my_strcpy does not realloc nor alloc
  */
-char *my_strcpy(char *dest, char *src);
+char *my_strcpy(char *dest, const char *src);
 
 /** Copy src up to n into dest
  * @param dest destination of the copy
@@ -424,7 +424,7 @@ char *my_strcpy_from(char *dest, char *src, int n);
  * @returns malloc'd string
  * OR NULL on error
  */
-char *my_strdup(char *src);
+char *my_strdup(const char *src);
 
 /** Duplicate a string starting at n
  * @param src string to duplicate

@@ -24,7 +24,7 @@ int my_isneg(int n);
 //return 1 if number is prime, 0 if not
 int my_isprime(int nb);
 //retrieves the first int in str
-int my_getnbr(char *str);
+int my_getnbr(const char *str);
 //retrives the first int in str starting at i
 int my_getnbr_from(const char *str, int i);
 //return nb to the power of p

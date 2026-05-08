@@ -40,7 +40,7 @@ int my_nb_words(char *str, char *separator)
     do {
         i++;
         if ((my_char_is_in(str[i], separator, NULL) || str[i] == '\0') &&
-        !my_char_is_in(str[i - 1], separator, NULL) && str[i - 1] != '\0')
+            !my_char_is_in(str[i - 1], separator, NULL) && str[i - 1] != '\0')
             words++;
     } while (str[i] != '\0');
     return words;

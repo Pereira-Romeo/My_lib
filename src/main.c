@@ -11,8 +11,8 @@
 
 int main(void)
 {
-    char *str = "hello why not, i am dying.\nwaaaaaaaaaahhhhhh\n";
-    char *separator = " \n\t";
+    char *str = my_strdup("hello why not, i am dying.\nwaaaaaaaaaahhhhhh\n");
+    char *separator = my_strdup(" \n\t");
     int str_index = 0;
     int c_index = 0;
     int found = 0;
@@ -27,5 +27,7 @@ int main(void)
     (found) ? separator[c_index] : '.',
     (found) ? "' at: " : "",
     (found) ? str_index : 0);
+    free(str);
+    free(separator);
     return 0;
 }

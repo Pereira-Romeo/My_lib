@@ -41,28 +41,28 @@ static
 int add_flags(char flag, fspe_t *mod)
 {
     switch (flag) {
-    case '#':
-        mod->flags |= 1;
-        return TRUE;
-    case '0':
-        mod->flags |= 2;
-        return TRUE;
-    case '-':
-        mod->flags |= 4;
-        return TRUE;
-    case ' ':
-        mod->flags |= 8;
-        return TRUE;
-    case '+':
-        mod->flags |= 16;
-        return TRUE;
-    default:
-        return FALSE;
+        case '#':
+            mod->flags |= 1;
+            return TRUE;
+        case '0':
+            mod->flags |= 2;
+            return TRUE;
+        case '-':
+            mod->flags |= 4;
+            return TRUE;
+        case ' ':
+            mod->flags |= 8;
+            return TRUE;
+        case '+':
+            mod->flags |= 16;
+            return TRUE;
+        default:
+            return FALSE;
     }
 }
 
 static
-void add_precision(fspe_t *pf, char **ptr, va_list list)
+void add_precision(fspe_t *pf, const char **ptr, va_list list)
 {
     (*ptr)++;
     if (!my_char_isnumer(**ptr) && **ptr != '*')
@@ -78,7 +78,7 @@ void add_precision(fspe_t *pf, char **ptr, va_list list)
 }
 
 static
-void add_wp(fspe_t *pf, char **ptr, va_list list)
+void add_wp(fspe_t *pf, const char **ptr, va_list list)
 {
     if (**ptr == '*') {
         pf->width = va_arg(list, int);
@@ -93,7 +93,7 @@ void add_wp(fspe_t *pf, char **ptr, va_list list)
     }
 }
 
-void make_fspe_mod(fspe_t *pf, char **ptr, va_list list)
+void make_fspe_mod(fspe_t *pf, const char **ptr, va_list list)
 {
     for (; **ptr; *ptr += 1) {
         if (add_flags(**ptr, pf))

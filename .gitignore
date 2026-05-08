@@ -1,4 +1,5 @@
-coding-style-reports.log
+*.log
 .vscode
 keep_local
 .build
+main

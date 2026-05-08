@@ -8,7 +8,7 @@
 #include "../headers/my_str.h"
 #include <stddef.h>
 
-char *my_strcpy(char *dest, char *src)
+char *my_strcpy(char *dest, const char *src)
 {
     int i = 0;
 

@@ -5,7 +5,7 @@
 ** returns the nb sent as a str
 */
 
-int my_getnbr(char *str)
+int my_getnbr(const char *str)
 {
     int nb = 0;
     int nbr_of_minus = 0;
