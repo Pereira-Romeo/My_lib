@@ -37,14 +37,24 @@ CC = gcc
 #.cpp compiler
 CXX = g++
 
+#generic library flags
+LDFLAGS =
+
+#set to true to include library (INCLUDE_LIB=true)
+#leave empty otherwise (include_lib=)
+INCLUDE_LIB=true
+
+#mylib_flag
+MY_LIB = -L lib/ -lmy
+ifeq ($(INCLUDE_LIB), true)
+	LDFLAGS += $(MY_LIB)
+endif
+
 #generic error flags
 CFLAGS = -Wall -Wextra -Wformat-nonliteral -Wcast-align -Wpointer-arith  \
 -Wmissing-declarations -Winline -Wundef \
 -Wcast-qual -Wshadow -Wwrite-strings -Wno-unused-parameter \
 -Wfloat-equal -pedantic
-
-#generic library flags
-LDFLAGS = -L lib/ -lmy -lm
 
 #generic .cpp flags
 CXXFLAGS = -std=c++20 -fno-gnu-unique
@@ -73,8 +83,12 @@ all: mylib $(NAME)
 
 .PHONY: mylib
 mylib:
-	@ export MY_CC=$(CC); make -C lib/my
-	@ echo ""
+	@ [ "$(INCLUDE_LIB)" = "true" ] && {\
+		export MY_CC=$(CC); make -C lib/my; \
+		echo ""; \
+	} || {\
+		:;\
+	}
 
 
 .PHONY: buildprint
@@ -103,20 +117,32 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%$(EXT) | buildprint
 
 .PHONY: clean
 clean:
-	@ make -C lib/my clean
+	@ [ "$(INCLUDE_LIB)" = "true" ] && {\
+		make -C lib/my clean; \
+	} || {\
+		:;\
+	}
 	@ rm -f $(OBJ)
 
 
 .PHONY: fclean
 fclean: clean
-	@ make -C lib/my fclean
+	@ [ "$(INCLUDE_LIB)" = "true" ] && {\
+		make -C lib/my fclean; \
+	} || {\
+		:;\
+	}
 	@ echo "$(PBCP)Deleting:$(PRESET) $(NAME)"
 	@ rm -f $(NAME)
 
 .PHONY: delspacing
 delspacing:
-	@ echo ""
-	@ echo ""
+	@ [ "$(INCLUDE_LIB)" = "true" ] && {\
+		echo ""; \
+		echo ""; \
+	} || {\
+		:;\
+	}
 
 .PHONY: re
 re:     fclean delspacing all
