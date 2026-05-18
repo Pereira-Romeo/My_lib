@@ -141,7 +141,7 @@ delspacing:
 		echo ""; \
 		echo ""; \
 	} || {\
-		:;\
+		echo "";\
 	}
 
 .PHONY: re
