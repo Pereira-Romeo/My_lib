@@ -9,7 +9,7 @@
 
 NAME = main
 
-#supported extensions: .c/.cpp
+#supported extensions: .c/.cpp/.cxx
 EXT = .c
 
 ##================================================================##
@@ -37,12 +37,15 @@ CC = gcc
 #.cpp compiler
 CXX = g++
 
-#generic library flags
-LDFLAGS =
+#your library flags go here
+LDFLAGS = -luuid
 
-#set to true to include library (INCLUDE_LIB=true)
-#leave empty otherwise (include_lib=)
-INCLUDE_LIB=true
+#set to true to include library (INCLUDE_LIB = true)
+#leave empty otherwise (include_lib =)
+INCLUDE_LIB = true
+
+# YOU PROBABLY DO NOT NEED TO CHANGE ANYTHING BELOW THIS
+# if you do, make sure you know what you're doing.
 
 #mylib_flag
 MY_LIB = -L lib/ -lmy

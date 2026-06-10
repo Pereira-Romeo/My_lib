@@ -5,29 +5,21 @@
 ** testing the library
 */
 
-#include "my.h"
+#include "../include/my.h"
+#include <uuid/uuid.h>
 #include <math.h>
 #include <stdio.h>
 
 int main(void)
 {
-    char *str = my_strdup("hello why not, i am dying.\nwaaaaaaaaaahhhhhh\n");
-    char *separator = my_strdup(" \n\t");
-    int str_index = 0;
-    int c_index = 0;
-    int found = 0;
+    uuid_t id = {0};
+    char id_str[36] = {0};
+    uuid_generate(id);
+    uuid_unparse(id, id_str);
+    my_printf("uuid: %s\n", id_str);
 
-    found = one_c_is_in(separator, str + 20, &str_index, &c_index);
-    my_printf("%s%c%s%.0d\n", (found) ? "found '" : "found nothing",
-    (found) ? separator[c_index] : '.',
-    (found) ? "' at: " : "",
-    (found) ? str_index : 0);
-    found = one_c_is_in(separator, str + my_strlen(str), &str_index, &c_index);
-    my_printf("%s%c%s%.0d\n", (found) ? "found '" : "found nothing",
-    (found) ? separator[c_index] : '.',
-    (found) ? "' at: " : "",
-    (found) ? str_index : 0);
-    free(str);
-    free(separator);
+    char str[11] = "123456789\n";
+    str[11] = 0;
+    write(STDOUT_FILENO, str, sizeof(str));
     return 0;
 }

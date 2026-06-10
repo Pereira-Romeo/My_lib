@@ -1,23 +1,28 @@
-# A standard C99 library
+# A standard C99 library (and template project repo)
 
  ![coding style check](https://github.com/Pereira-Romeo/My_lib/actions/workflows/coding_style_check.yml/badge.svg)
 
 This project is a personnal project[^1] that i work on during free time to deepen my knowledge about the C standard library and C in general.
 Along this project i am also learning how to use github and all its tools.
 
-[^1]: @Doritosbzh also contributed to the my_printf, and the new one in progress.
+[^1]: @Doritosbzh also contributed to the my_printf.
 
 > [!WARNING]
 > Every functions in this project have been tested but most likely still have bugs as this is mostly training.
 
 ## table of contents
 
- - [How to use this library](#how-to-use-this-library).
- - [Known issues](#known-issues-work-in-progress).
- - [Dependencies](#dependencies).
- - [Coming soon](#coming-soon-or-atleast-some-day-in-the-future).
- - [Manuals](#man-my_lib).
+ - **[Initializing a new project with this template](#initializing-a-new-project-with-this-template)**.
+ - **[How to use this library](#how-to-use-this-library)**.
+ - **[Known issues](#known-issues-work-in-progress)**.
+ - **[Dependencies](#dependencies)**.
+ - **[Coming soon](#coming-soon-or-atleast-some-day-in-the-future)**.
+ - **[Manuals](#man-my_lib)**.
 
+
+# Initializing a new project with this template
+
+Check out **[this doc for info](./doc/using_this_repo_as_template.md)**.
 
 # How to use this library
 
@@ -87,9 +92,7 @@ the sub libraries my_errno, my_mem and my_bool are used all over this library, d
 
 Ticked items are _priority_ items
 
- - [x] New conversions to [my_printf](https://github.com/Pereira-Romeo/my_printf/).
- - [x] Using my_lperror() for all error messages in the library.
- - [x] bash script or C program to clean up library at end of projects
+ - [] New conversions to [my_printf](https://github.com/Pereira-Romeo/my_printf/).
  - [ ] Update the docstring in all header files.
  - [ ] Make this readme look better.
  - [ ] Manuals for each sub-lib of My_lib.
