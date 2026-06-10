@@ -23,7 +23,7 @@ alias cinit=\"$HOME/path/to/mylib/project_init.sh\"" >> ~/.bashrc
 
 > [!NOTE]
 > This section makes use of the earlier section
-> so an instane of 'cinit' is the project_init.sh script.
+> so an instance of 'cinit' is the project_init.sh script.
 
 ### the basics
 ```sh
@@ -32,7 +32,7 @@ cinit . --name "my_project"
 The line above will, in your current working directory, initialize a project called "my_project" in c.
 
 This script will not execute if your target directory isn't empty. \
-By "isn't empty" we mean if there is any NOT hidden files in your dir. \
+By "isn't empty" we mean if there is any NOT hidden files in your dir it will be considered not empty. \
 Hidden files (like `.git`) will not make us consider the dir as not empty.
 
 after executing this script (in an empty dir) you can expect the following tree:
@@ -51,10 +51,10 @@ after executing this script (in an empty dir) you can expect the following tree:
 ### every flags
 
 |flag|description|
-|:---:|:---:|
+|:---:|:---|
 |`--lib`| use this flag if you wish to add my library to your project |
 |`--cpp` or `--cxx`| use one of these flags to make a c++ project, choose the flag depending on your desired extension (respectivly `.cpp` & `.cxx`) |
-|`--force`| use this flag if your target directory isn't empy. This action is NOT recommended. in the even you were to use it, **[please read](#about---force)**.|
+|`--force`| use this flag if your target directory isn't empy. This action is NOT recommended. In the event that you were to use it, **[please read](#about---force)**.|
 |`--name`| use this to define a name for your project. This flag requires an argument (obviously). if --name is not used, the project name will default to your target directory's name|
 
 ### about `--force`
