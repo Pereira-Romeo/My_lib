@@ -9,7 +9,7 @@
 
 NAME = main
 
-#supported extensions: .c/.cpp/.cxx
+#supported extensions: .c/.cpp
 EXT = .c
 
 ##================================================================##
@@ -17,8 +17,17 @@ EXT = .c
 ##================================================================##
 SRCDIR = src
 
-SRC := $(wildcard $(SRCDIR)/*$(EXT))
+#path of your file containing the main
+EXECSRC = $(SRCDIR)/main$(EXT)
 
+# SRC := $(wildcard $(SRCDIR)/*$(EXT))
+SRC := $(filter-out $(EXECSRC), $(wildcard $(SRCDIR)/*$(EXT)))
+
+#criterion test sources
+TESTSRC = $(wildcard $(TESTDIR)/*$(EXT))
+TESTSRC += $(wildcard $(TESTDIR)/argHandler_class/*$(EXT))
+TESTSNAME = tests.bin
+TESTDIR = tests
 
 ##================================================================##
 ##================= Object Files ===================================
@@ -26,7 +35,8 @@ SRC := $(wildcard $(SRCDIR)/*$(EXT))
 BUILDDIR = .build
 
 OBJ := $(SRC:$(SRCDIR)/%$(EXT)=$(BUILDDIR)/%.o)
-
+EXECOBJ = $(EXECSRC:$(SRCDIR)/%$(EXT)=$(BUILDDIR)/%.o)
+TESTOBJ = $(TESTSRC:$(TESTDIR)/%$(EXT)=$(BUILDDIR)/tests/%.o)
 
 ##================================================================##
 ##================= Compiling options ============================##
@@ -37,15 +47,12 @@ CC = gcc
 #.cpp compiler
 CXX = g++
 
-#your library flags go here
+#generic library flags
 LDFLAGS = -luuid
 
 #set to true to include library (INCLUDE_LIB = true)
 #leave empty otherwise (include_lib =)
 INCLUDE_LIB = true
-
-# YOU PROBABLY DO NOT NEED TO CHANGE ANYTHING BELOW THIS
-# if you do, make sure you know what you're doing.
 
 #mylib_flag
 MY_LIB = -L lib/ -lmy
@@ -96,21 +103,26 @@ mylib:
 
 .PHONY: buildprint
 buildprint:
-# this if runs at run time and not parse time (necessary in this one)
 	@ [ -f $(NAME) ] && { \
 		echo "$(PBC)Nothing to build for $(NAME).$(PRESET)"; \
 	} || { \
 		echo "$(PBC)Building $(NAME):$(PRESET)"; \
 	}
 
-
-$(NAME): $(OBJ)
-	@ $(COMPILER) -o $@ $(OBJ) $(FLAGS) $(LDFLAGS) || \
+$(NAME): $(OBJ) $(EXECOBJ)
+	@ $(COMPILER) -o $@ $(EXECOBJ) $(OBJ) $(FLAGS) $(LDFLAGS) || \
 	( echo "$(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $@"; \
 	exit 1 )
 	@ echo "$(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $@"
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%$(EXT) | buildprint
+	@ mkdir -p $(dir $@)
+	@ $(COMPILER) $(FLAGS) -o $@ -c $< || \
+	( echo "    $(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"; \
+	exit 1 )
+	@ echo "    $(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"
+
+$(BUILDDIR)/tests/%.o: $(TESTDIR)/%$(EXT)
 	@ mkdir -p $(dir $@)
 	@ $(COMPILER) $(FLAGS) -o $@ -c $< || \
 	( echo "    $(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $(subst $(BUILDDIR)/,,$@)"; \
@@ -125,7 +137,8 @@ clean:
 	} || {\
 		:;\
 	}
-	@ rm -f $(OBJ)
+	@ rm -f $(OBJ) $(EXECOBJ) $(TESTSNAME) $(TESTOBJ)
+	@ rm -fr $(BUILDDIR)
 
 
 .PHONY: fclean
@@ -149,6 +162,26 @@ delspacing:
 
 .PHONY: re
 re:     fclean delspacing all
+
+.PHONY: tests_run
+tests_run: FLAGS += -O0 -g --coverage
+tests_run: LDFLAGS += -lcriterion
+tests_run: tests.bin
+	@ echo ""
+	@ ./tests.bin || exit 0
+	@ echo ""
+	@ gcovr -r . --exclude 'tests/.*'
+
+$(TESTSNAME): $(OBJ) $(TESTOBJ)
+	@ $(COMPILER) -o $@ $(TESTOBJ) $(OBJ) $(FLAGS) $(LDFLAGS) || \
+	( echo "$(PBC)[$(PCR)KO$(PBNC)]$(PRESET) $@"; \
+	exit 1 )
+	@ echo "$(PBC)[$(PCG)OK$(PBNC)]$(PRESET) $@"
+
+.PHONY: debug
+debug: CFLAGS += -DDEBUG_MODE
+debug: re
+
 
 ##================================================================##
 ##================= Fancy Stuff ==================================##

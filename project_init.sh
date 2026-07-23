@@ -184,6 +184,7 @@ if [ -d ".git" ]; then
     grep -qxF "$PROJECT_NAME" .gitignore || echo "$PROJECT_NAME" >> .gitignore
     grep -qxF '*.log' .gitignore || echo '*.log' >> .gitignore
     grep -qxF '.local/' .gitignore || echo '.local/' >> .gitignore
+    grep -qxF '*.bin' .gitignore || echo '*.bin' >> .gitignore
 fi
 
 
@@ -203,8 +204,10 @@ sed -i "s/^INCLUDE_LIB = .*/INCLUDE_LIB = $F_INCLUDE_LIB/" Makefile
 #populating main if it doesn't yet exists
 if [ "$F_CPP_PROJECT" == "true" ]; then
     MAIN_NAME="Main$F_EXT"
+    sed -i "s|^EXECSRC = .*|EXECSRC = \$(SRCDIR)/Main\$(EXT)|" Makefile
 else
     MAIN_NAME="main.c"
+    sed -i "s|^EXECSRC = .*|EXECSRC = \$(SRCDIR)/main\$(EXT)|" Makefile
 fi
 
 if [ ! -f "src/$MAIN_NAME" ]; then
